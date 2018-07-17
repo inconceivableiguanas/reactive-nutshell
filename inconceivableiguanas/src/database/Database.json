@@ -1,0 +1,51 @@
+{
+"event":[
+    {
+    "name":"test",
+    "id":"0",
+    "dateOf":"2018-07-04",
+    "place":"NSS"
+    }
+],
+"task":[
+    {
+        "name":"test",
+        "id":"0",
+        "date":"2018-07-04",
+        "completion":"False"
+    }
+],
+"article":[
+    {
+        "name":"test",
+        "id":"0",
+        "synopsis":"test",
+        "url":"test"
+    }
+],
+"friends":[
+    {
+        "userId":"0",
+        "id":"0",
+        "friendId":"1"
+    }
+],
+"chat":[
+    {
+        "id":"0",
+        "message":"test",
+        "userId":"0"
+    }
+],
+"users":[
+    {
+    "id":"0",
+    "name":"test",
+    "email":"test@test.com"
+    }
+]
+
+
+
+
+}
