@@ -12,7 +12,7 @@ handleFieldChange = (evt) => {
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
 }
-function ChatDOM(chat,children){
+function ChatDOM(props){
     return (
         
                 
