@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Events from "./components/events/Events";
-import Articles from "./components/articles/Articles";
+import ArticleList from "./components/articles/ArticleList";
 import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
+
 export default class ApplicationViews extends Component {
+  state = {
+    event: [],
+    task: [],
+    article: [{ name: "Dogshit" }],
+    friends: [],
+    chat: [],
+    users: []
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -16,23 +26,17 @@ export default class ApplicationViews extends Component {
           exact
           path="/"
           render={props => {
-            return (
-              <Home home={props.location.state.home}>
-                {props.location.state.home.name}
-              </Home>
-            );
+            return <Home />;
+            // <Home home={props.location.state.home}>
+            //   {props.location.state.home.name}
+            // </Home>
           }}
         />
 
         <Route
           path="/articles"
-          render={props => {
-            return (
-              <Articles articles={props.location.state.articles}>
-                {props.location.state.articles}
-                {console.log(props.location.state)}
-              </Articles>
-            );
+          render={state => {
+            return <ArticleList articles={this.state.article} />;
           }}
         />
         <Route

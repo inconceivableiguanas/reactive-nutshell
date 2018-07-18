@@ -8,6 +8,7 @@ export default class Nutshell extends Component {
     return (
       <React.Fragment>
         <NavBar />
+        {/* <Home /> */}
         <ApplicationViews />
       </React.Fragment>
     );
