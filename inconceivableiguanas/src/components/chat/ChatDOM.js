@@ -14,8 +14,7 @@ handleFieldChange = (evt) => {
 }
 function ChatDOM(chat,children){
     return (
-        <div className="card Chat Area" style={{width: `18rem`}}>Chat Area
-            <div className="card-body">
+        
                 
                 <p className="card-text">{chat.message}
                 {
@@ -29,7 +28,7 @@ function ChatDOM(chat,children){
                 }
                 </p>
                 
-            </div>
+            
             <label>
           New Message:
           <input type="text" id = "message" onChange={this.handleFieldChange} />
@@ -37,7 +36,7 @@ function ChatDOM(chat,children){
         <button type="submit" onClick={() => console.log("Stuff")}> 
                     Add New Message
                 </button>
-        </div>
+        
                 //on click call post method, rebuild dom in .then in desending order
     )
 }
