@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import APIHandler from "./../APIHandler";
+import ApiManager from "./../APIHandler";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -31,9 +31,9 @@ export default class EventForm extends Component {
         date: eventDate
       };
       console.log(body);
-      APIHandler.editData("events", eventId, body)
+      ApiManager.patchItem("events", eventId, body)
         .then(() => {
-          return APIHandler.getData("events");
+          return ApiManager.getAll("events");
         })
         .then(eventList => {
           this.setState({
@@ -51,9 +51,9 @@ export default class EventForm extends Component {
         date: eventDate
       };
       console.log(eventDate);
-      APIHandler.addData("events", body)
+      ApiManager.addData("events", body)
         .then(() => {
-          return APIHandler.getData("events");
+          return ApiManager.getAll("events");
         })
         .then(eventList => {
           this.setState({
@@ -63,9 +63,9 @@ export default class EventForm extends Component {
     }
   };
 
-  handleFieldChange = evt => {
+  handleFieldChange = eventValue => {
     const stateToChange = {};
-    stateToChange[evt.target.id] = evt.target.value;
+    stateToChange[eventValue.target.id] = eventValue.target.value;
     this.setState(stateToChange);
     console.log(stateToChange);
   };
@@ -80,30 +80,30 @@ export default class EventForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="eventInput">
+        <div id="eventInputFields">
           Event:{" "}
           <input
-            class="event-input"
+            class="event-input-name"
             onChange={this.handleFieldChange}
             id="name"
             value={this.state.event.name}
           />
           Location:{" "}
           <input
-            class="event-input"
+            class="event-input-location"
             onChange={this.handleFieldChange}
             id="location"
             value={this.state.event.location}
           />
           Date:{" "}
           <DatePicker
-            class="event-input"
+            class="event-input-date"
             selected={this.state.eventDate}
             onChange={this.handleChange}
             id="datePicker"
             value={this.state.event.date}
           />
-          <button onClick={this.eventFunction}>Submit</button>
+          <button onClick={this.eventFunction}>SAVE</button>
         </div>
       </React.Fragment>
     );
