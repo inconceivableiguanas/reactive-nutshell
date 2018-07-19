@@ -7,7 +7,13 @@ export default class Articles extends Component {
     return (
       <React.Fragment>
         <div>
-          <h5>{propart.name}</h5>
+          <a href={propart.url}>
+            <h2>{propart.name}</h2>
+          </a>
+          <h5>{propart.synopsis}</h5>
+          <button id="deleteArticle" onClick={this.deleter}>
+            DELETE
+          </button>
         </div>
       </React.Fragment>
     );

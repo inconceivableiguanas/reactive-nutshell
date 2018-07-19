@@ -1,51 +1,53 @@
 {
-"event":[
+  "event": [
     {
-    "name":"test",
-    "id":"0",
-    "dateOf":"2018-07-04",
-    "place":"NSS"
+      "name": "test",
+      "id": "0",
+      "dateOf": "2018-07-04",
+      "place": "NSS"
     }
-],
-"task":[
+  ],
+  "task": [
     {
-        "name":"test",
-        "id":"0",
-        "date":"2018-07-04",
-        "completion":"False"
+      "name": "test",
+      "id": "0",
+      "date": "2018-07-04",
+      "completion": "False"
     }
-],
-"article":[
+  ],
+  "article": [
     {
-        "name":"test",
-        "id":"0",
-        "synopsis":"test",
-        "url":"test"
-    }
-],
-"friends":[
+      "name": "test",
+      "id": "1",
+      "synopsis": "test",
+      "url": "test"
+    },
     {
-        "userId":"0",
-        "id":"0",
-        "friendId":"1"
+      "name": "Cool Things Happening",
+      "id": "2",
+      "synopsis": "Oh boy did they happen",
+      "url": "google.biz"
     }
-],
-"chat":[
+  ],
+  "friend": [
     {
-        "id":"0",
-        "message":"test",
-        "userId":"0"
+      "userId": "0",
+      "id": "0",
+      "friendId": "1"
     }
-],
-"users":[
+  ],
+  "chat": [
     {
-    "id":"0",
-    "name":"test",
-    "email":"test@test.com"
+      "id": "0",
+      "message": "test",
+      "userId": "0"
     }
-]
-
-
-
-
+  ],
+  "user": [
+    {
+      "id": "0",
+      "name": "test",
+      "email": "test@test.com"
+    }
+  ]
 }

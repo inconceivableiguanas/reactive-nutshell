@@ -6,16 +6,25 @@ import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
+import APIManager from "./APIManager";
 
 export default class ApplicationViews extends Component {
   state = {
     event: [],
     task: [],
-    article: [{ name: "Dogshit" }],
+    article: [],
     friends: [],
     chat: [],
     users: []
   };
+
+  componentDidMount() {
+    APIManager.getAll("article").then(articles =>
+      this.setState({
+        article: articles
+      })
+    );
+  }
 
   render() {
     return (
