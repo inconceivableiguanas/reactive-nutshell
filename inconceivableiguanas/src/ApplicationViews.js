@@ -3,16 +3,16 @@ import { Route } from "react-router-dom";
 import Events from "./components/events/Events";
 import ArticleList from "./components/articles/ArticleList";
 import Chat from "./components/chat/Chat";
-import Friends from "./components/friends/Friends";
+import FriendsList from "./components/friends/FriendsList";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
-
+import Friends from "./components/friends/Friends"
 export default class ApplicationViews extends Component {
   state = {
     event: [],
     task: [],
     article: [{ name: "Dogshit" }],
-    friends: [],
+    friends: [{name: "Tom"}],
     chat: [],
     users: []
   };
@@ -72,15 +72,10 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          path="/friends"
+          path="/friends" 
           render={props => {
-            return (
-              <Friends friends={props.location.state.friends}>
-                {props.location.state.friends}
-              </Friends>
-            );
-          }}
-        />
+            return <FriendsList friends={this.state.friends} />
+          }} />
       </React.Fragment>
     );
   }
