@@ -54,8 +54,8 @@ export default class ApplicationViews extends Component {
           path="/chat"
           render={props => {
             return (
-              <Chat chat={props.location.state.chat}>
-                {props.location.state.chat}
+              <Chat chat={this.state.chat}>
+                
               </Chat>
             );
           }}
