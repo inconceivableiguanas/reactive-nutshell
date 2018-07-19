@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Events from "./components/events/Events";
+import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
@@ -62,12 +62,8 @@ export default class ApplicationViews extends Component {
         />
         <Route
           path="/events"
-          render={props => {
-            return (
-              <Events events={props.location.state.events}>
-                {props.location.state.events}
-              </Events>
-            );
+          render={state => {
+            return <EventsList events={this.state.event} />;
           }}
         />
 
