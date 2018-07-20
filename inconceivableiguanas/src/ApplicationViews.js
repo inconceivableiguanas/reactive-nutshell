@@ -20,7 +20,7 @@ export default class ApplicationViews extends Component {
   };
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
-    APIManager.getAll("article").then(articles =>
+    APIManager.getAll("article?_sort=id&order=desc").then(articles =>
       this.setState({
         article: articles
       })

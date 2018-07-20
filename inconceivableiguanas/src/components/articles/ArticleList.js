@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Articles from "./Articles";
 import APIManager from "../../APIManager";
-import Moment from "react-moment";
+// import Moment from "react-moment";
 
 export default class ArticleList extends Component {
   state = { clicked: "" };
@@ -14,10 +14,9 @@ export default class ArticleList extends Component {
     const title = event.target.ArticleTitle.value;
     const summary = event.target.ArticleSummary.value;
     const url = event.target.ArticleURL.value;
+    // const time = Moment().format("YYYY-MM-DD hh:mm:ss a");
 
-    // const data = new FormData(event.target);
-
-    fetch("http://localhost:5002/article?_sort=id&order=asc", {
+    fetch("http://localhost:5002/article", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8"
@@ -26,12 +25,13 @@ export default class ArticleList extends Component {
         name: title,
         synopsis: summary,
         url: url
+        // timestamp: time
       })
     })
       // When DELETE is finished, retrieve the new list of animals
       .then(() => {
         // Remember you HAVE TO return this fetch to the subsequenet `then()`
-        return fetch("http://localhost:5002/article?_sort=id&order=asc");
+        return fetch("http://localhost:5002/article");
       })
       // Once the new array of animals is retrieved, set the state
       .then(a => a.json())
@@ -52,9 +52,7 @@ export default class ArticleList extends Component {
       // Once the new array of animals is retrieved, set the state
       .then(a => a.json())
       .then(articleList => {
-        this.props.setTheState({
-          article: articleList
-        });
+        this.props.setTheState({ article: articleList });
       });
   };
 
@@ -68,7 +66,7 @@ export default class ArticleList extends Component {
             <label>Article Summary</label>
             <input id="ArticleSummary" name="ArticleSummary" type="text" />
             <label>Article URL</label>
-            <input id="ArticleURL" name="ArticleURL" type="text" />
+            <input id="ArticleURL" name="ArticleURL" type="url" />
             <button type="submit">Submit</button>
           </form>
         )
