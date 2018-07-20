@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ApiManager from "../../APIManager.js"
+import { withRouter } from 'react-router';
 
 export default class EditChat extends Component {
   // Set initial state
@@ -28,9 +29,9 @@ export default class EditChat extends Component {
     return (
       <form onSubmit={this.handleUpdate}>
         <h1 className="h3 mb-3 font-weight-normal">Edit Chat</h1>
-        <label htmlFor="inputMessage">Chat Name</label>
+        <label htmlFor="inputMessage">Message</label>
         <input
-          value={this.state.name}
+          value={this.state.message}
           onChange={this.handleFieldChange}
           type="text"
           id="message"

@@ -71,7 +71,7 @@ export default class ApplicationViews extends Component {
           }}
         />
         <Route exact path="/chat/:chatId/edit" render={(props) => {
-          return <EditChat chat={props.location.state.chat} />
+          return <EditChat chat={props.location.state.chat} {...props}/>
         }} />
         <Route
           path="/events"
