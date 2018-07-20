@@ -6,10 +6,12 @@ import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
 import ToDoList from "./components/toDo/ToDoList";
 import Home from "./Home";
-
+import EditChat from "./components/chat/EditChat"
+import APIManager from "./APIManager";
 export default class ApplicationViews extends Component {
   state = {
     event: [],
+<<<<<<< HEAD
     tasks: [
       {
         name: "dogshit",
@@ -18,11 +20,24 @@ export default class ApplicationViews extends Component {
         completion: "false"
       }
     ],
+=======
+    task: [],
+    chat:[],
+>>>>>>> master
     article: [{ name: "Dogshit" }],
     friends: [],
-    chat: [],
     users: []
   };
+   // SHU'S BIG OL CHAT DUMP
+   setTheState = () => {
+    APIManager.getAll("chat").then(chats =>
+      this.setState({
+        chat: chats
+      })
+    );
+  };
+
+  // END OF CHAT DUMP
 
   render() {
     return (
@@ -55,15 +70,17 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          path="/chat"
+          exact path="/chat"
           render={props => {
             return (
-              <Chat chat={props.location.state.chat}>
-                {props.location.state.chat}
-              </Chat>
+              <Chat chat={this.state.chat}/>
+                
             );
           }}
         />
+        <Route exact path="/chat/:chatId/edit" render={(props) => {
+          return <EditChat chat={props.location.state.chat} />
+        }} />
         <Route
           path="/events"
           render={props => {
