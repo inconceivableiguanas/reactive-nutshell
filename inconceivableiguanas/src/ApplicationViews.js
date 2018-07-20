@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Events from "./components/events/Events";
+import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
@@ -13,8 +13,9 @@ import APIManager from "./APIManager";
 
 export default class ApplicationViews extends Component {
   state = {
+    events: [],
+    task: [],
     event: [],
-
     tasks: [
       {
         name: "dogshit",
@@ -33,6 +34,9 @@ export default class ApplicationViews extends Component {
     APIManager.getAll("article?_sort=id&order=desc").then(articles =>
       this.setState({
         article: articles
+      })
+    )
+  }
    // SHU'S BIG OL CHAT DUMP
    setTheState = () => {
     APIManager.getAll("chat").then(chats =>
@@ -45,6 +49,14 @@ export default class ApplicationViews extends Component {
   // END OF ARTICLE DUMP
   // END OF CHAT DUMP
 
+  setEventState = () => {
+    APIManager.getAll("events").then(event =>
+      this.setState({
+        events: event
+      })
+    );
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -55,9 +67,7 @@ export default class ApplicationViews extends Component {
           path="/"
           render={props => {
             return <Home />;
-            // <Home home={props.location.state.home}>
-            //   {props.location.state.home.name}
-            // </Home>
+            
           }}
         />
         <Route
@@ -91,24 +101,32 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          exact path="/chat"
+          exact
+          path="/chat"
           render={props => {
-            return (
-              <Chat chat={this.state.chat}/>
-                
-            );
+            return <Chat chat={this.state.chat} />;
           }}
         />
         <Route exact path="/chat/:chatId/edit" render={(props) => {
           return <EditChat chat={props.location.state.chat} {...props}/>
         }} />
         <Route
-          path="/events"
+          exact
+          path="/chat/:chatId/edit"
           render={props => {
+            return <EditChat chat={props.location.state.chat} />;
+          }}
+        />
+        <Route
+          path="/events"
+          render={state => {
             return (
-              <Events events={props.location.state.events}>
-                {props.location.state.events}
-              </Events>
+              <EventsList
+                events={this.state.events}
+                setEventState={this.setEventState}
+              >
+                {this.state.events}
+              </EventsList>
             );
           }}
         />

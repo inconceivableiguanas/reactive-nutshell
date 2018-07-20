@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ApiManager from "../../APIManager.js"
-import { withRouter } from 'react-router';
+
 
 export default class EditChat extends Component {
   // Set initial state

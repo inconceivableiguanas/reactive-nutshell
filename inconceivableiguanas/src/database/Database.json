@@ -1,10 +1,22 @@
 {
-  "event": [
+  "events": [
     {
       "name": "test",
       "id": "0",
-      "dateOf": "2018-07-04",
-      "place": "NSS"
+      "date": "2018-07-04",
+      "placeOf": "NSS"
+    },
+    {
+      "name": "Kitty Litter Clump Toss",
+      "id": 2,
+      "date": "03-09-2019",
+      "placeOf": "Crazy Cat Lady's Home"
+    },
+    {
+      "name": "Dogshit-Extravaganza!",
+      "id": 1,
+      "date": "03-08-2019",
+      "placeOf": "Shitty Dog Park"
     }
   ],
   "toDo": [
@@ -75,7 +87,13 @@
       "url": "test"
     }
   ],
-  "friends": [],
+  "friends": [
+    {
+      "userId": "0",
+      "id": "0",
+      "friendId": "1"
+    }
+  ],
   "chat": [
     {
       "id": 1
