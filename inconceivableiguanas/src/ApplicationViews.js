@@ -11,6 +11,7 @@ export default class ApplicationViews extends Component {
   state = {
     event: [],
     task: [],
+    chat:[],
     article: [{ name: "Dogshit" }],
     friends: [],
     users: []

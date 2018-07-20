@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import ChatDom from "./ChatDOM"
 import APIManager from "../../APIManager.js"
 
-let dataObject ={
-   message:"",
-   userId:"9"
-}
+
 export default class Chat extends Component {
     state={
         chat:[]
@@ -14,14 +11,19 @@ export default class Chat extends Component {
         APIManager.getAll("chat").then(chat=>this.setState({chat:chat}))
     }
     
+    dataObject ={}
     handleFieldChange = evt => { //used on add chat input
-        const stateToChange = {};
-        stateToChange[evt.target.id] = evt.target.value;
-        this.setState(stateToChange);
+        
+        console.log("Is Firing")
+            this.dataObject = {message:"",
+        userId:"9"};
+        this.dataObject[evt.target.id] = evt.target.value;
+        this.setState(this.dataObject);
     };
     
     addMessage = (messageObject) => {
-        APIManager.postItem("chat",messageObject)
+        console.log(" in addMessage")
+        APIManager.postItem("chat",{message:this.state.message,userId:this.state.userId})
     }
     render() {
     return (
@@ -40,7 +42,7 @@ export default class Chat extends Component {
       
       <label>
           New Message:
-          <input type="text" id = "chat.message" onChange={this.handleFieldChange} />
+          <input type="text" id = "message" onChange={this.handleFieldChange} />
         </label>
         <button type="submit"> 
                     Add New Message

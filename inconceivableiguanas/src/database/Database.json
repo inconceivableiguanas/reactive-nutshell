@@ -32,31 +32,10 @@
   ],
   "chat": [
     {
-      "id": "0",
-      "message": "test",
-      "userId": "0"
-    },
-    
-      {
-        "id": "1",
-        "message": "test",
-        "userId": "2"
-      },
-    
-    
-      {
-        "id": "2",
-        "message": "test",
-        "userId": "3"
-      },
-      
-        {
-          "id": "3",
-          "message": "test",
-          "userId": "4"
-        }
-      
-    
+      "message": "i dont know",
+      "userId": "9",
+      "id": 1
+    }
   ],
   "users": [
     {

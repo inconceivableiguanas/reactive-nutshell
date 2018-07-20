@@ -9,7 +9,7 @@ export default props => {
         //    ]
         //  }
         
-        console.log(props)
+        
             return (
                 
                 <React.Fragment>
