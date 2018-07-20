@@ -1,44 +1,46 @@
-import React from "react"
+import React, { Component } from "react"
 import { Link } from "react-router-dom"
-state = {
-    newMessage: {
-        message: "",
-        userId:"0" //placeholder use post method in APIManger to add to Database
-    }
- }
 
-handleFieldChange = (evt) => {
-    const stateToChange = {}
-    stateToChange[evt.target.id] = evt.target.value
-    this.setState(stateToChange)
-}
-function ChatDOM(props){
-    return (
+
+export default props => {
+    // state = { should be able to use props since state is passed down from chat.js
+    //    chat:[
         
+        //    ]
+        //  }
+        const secStyle= {
+            border: '1px solid black'
+        }
+        
+            return (
                 
-                <p className="card-text">{chat.message}
+                <React.Fragment>
+            <section style = {secStyle} id = {props.chat.id}>
+                <p>User Id{props.chat.userId}</p>
+
+                <p className="card-text">{props.chat.message}
                 {
                     <Link className="card-link"
                     to={{
-                        pathname: `/chat/${chat.message.id}/edit`, //link to edit form
-                        state: { chat: chat } //data going to edit form?????
+                        pathname: `/chat/${props.chat.id}/edit`,
+                        state: { chat: props.chat }
                     }}>
                         Edit
                     </Link>
-                }
+                    // <Link className="card-link"
+                    // to={{
+                        //     pathname: `/chat/${chat.message.id}/edit`, //link to edit form
+                        //     state: { chat: chat } //data going to edit form?????
+                        // }}>
+                        //     Edit
+                        // </Link>
+                    }
                 </p>
                 
+            </section>
             
-            <label>
-          New Message:
-          <input type="text" id = "message" onChange={this.handleFieldChange} />
-        </label>
-        <button type="submit" onClick={() => console.log("Stuff")}> 
-                    Add New Message
-                </button>
-        
+        </React.Fragment>
                 //on click call post method, rebuild dom in .then in desending order
-    )
-}
-export default ChatDOM;
-// this is all wronng. I need to make the chat area static and dynamically add p tags in chat area representing chat. the static container needs to have an input field with new message button
+            )
+        }
+    

@@ -1,51 +1,56 @@
 {
-"event":[
+  "event": [
     {
-    "name":"test",
-    "id":"0",
-    "dateOf":"2018-07-04",
-    "place":"NSS"
+      "name": "test",
+      "id": "0",
+      "dateOf": "2018-07-04",
+      "place": "NSS"
     }
-],
-"task":[
+  ],
+  "task": [
     {
-        "name":"test",
-        "id":"0",
-        "date":"2018-07-04",
-        "completion":"False"
+      "name": "test",
+      "id": "0",
+      "date": "2018-07-04",
+      "completion": "False"
     }
-],
-"article":[
+  ],
+  "article": [
     {
-        "name":"test",
-        "id":"0",
-        "synopsis":"test",
-        "url":"test"
+      "name": "test",
+      "id": "0",
+      "synopsis": "test",
+      "url": "test"
     }
-],
-"friends":[
+  ],
+  "friends": [],
+  "chat": [
     {
-        "userId":"0",
-        "id":"0",
-        "friendId":"1"
-    }
-],
-"chat":[
+      "message": "hello",
+      "userId": "9",
+      "id": 1
+    },
     {
-        "id":"0",
-        "message":"test",
-        "userId":"0"
-    }
-],
-"users":[
+      "message": "howdy",
+      "userId": "9",
+      "id": 2
+    },
     {
-    "id":"0",
-    "name":"test",
-    "email":"test@test.com"
+      "message": "hi",
+      "userId": "9",
+      "id": 3
+    },
+    {
+      "message": "hello hello",
+      "userId": "9",
+      "id": 4
     }
-]
-
-
-
-
+  ],
+  "users": [
+    {
+      "id": "0",
+      "name": "test",
+      "email": "test@test.com"
+    }
+  ]
 }
