@@ -3,18 +3,34 @@ import Articles from "./Articles";
 import APIManager from "../../APIManager";
 
 export default class ArticleList extends Component {
-  state = {
-    clicked: ""
-  };
-  formLauncher = () => {
-    // const title = event.target.ArticleTitle.value;
-    // const summary = event.target.ArticleSummary.value;
-    // const url = event.target.ArticleURL.value;
+  state = { clicked: "" };
 
+  componentDidMount() {
+    this.props.setTheState();
+  }
+  deleteArticle = articleId => {
+    // console.log("it works");
+    // Delete the specified animal from the API
+    fetch(`http://localhost:5002/article/${articleId}`, {
+      method: "DELETE"
+    })
+      // When DELETE is finished, retrieve the new list of animals
+      .then(() => {
+        // Remember you HAVE TO return this fetch to the subsequenet `then()`
+        return fetch("http://localhost:5002/article");
+      })
+      // Once the new array of animals is retrieved, set the state
+      .then(a => a.json())
+      .then(articleList => {
+        this.props.setTheState({ article: articleList });
+      });
+  };
+
+  formLauncher = () => {
     if (this.state.clicked === "") {
       this.setState({
         clicked: (
-          <form onSubmit={APIManager.postItem()}>
+          <form onSubmit={APIManager.postItem("article", "fillertext")}>
             <label>Article Title</label>
             <input id="ArticleTitle" name="ArticleTitle" type="text" />
             <label>Article Summary</label>
@@ -34,14 +50,20 @@ export default class ArticleList extends Component {
     let propart = this.props.articles;
     return (
       <React.Fragment>
-        <button id="addArticle" onClick={this.formLauncher}>
-          ADD ARTICLE
-        </button>
-        {this.state.clicked}
+        <div>
+          <button id="addArticle" onClick={this.formLauncher}>
+            ADD ARTICLE
+          </button>
+          {this.state.clicked}
 
-        {propart.map(article => (
-          <Articles key={article.id} article={article} />
-        ))}
+          {propart.map(article => (
+            <Articles
+              key={article.id}
+              article={article}
+              delete={this.deleteArticle}
+            />
+          ))}
+        </div>
       </React.Fragment>
     );
   }

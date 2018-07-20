@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Events from "./components/events/Events";
 import ArticleList from "./components/articles/ArticleList";
+import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
 import Todo from "./components/toDo/Todo";
@@ -17,14 +18,16 @@ export default class ApplicationViews extends Component {
     chat: [],
     users: []
   };
-
-  componentDidMount() {
+  // AUSTINS BIG OL ARTICLE DUMP
+  setTheState = () => {
     APIManager.getAll("article").then(articles =>
       this.setState({
         article: articles
       })
     );
-  }
+  };
+
+  // END OF ARTICLE DUMP
 
   render() {
     return (
@@ -41,11 +44,26 @@ export default class ApplicationViews extends Component {
             // </Home>
           }}
         />
-
+        <Route
+          path="/articles/:articleId"
+          render={props => {
+            return (
+              <Articles article={props.location.state.Articles}>
+                {props.location.state.Articles.name}
+                {console.log(props.location.state)}
+              </Articles>
+            );
+          }}
+        />
         <Route
           path="/articles"
           render={state => {
-            return <ArticleList articles={this.state.article} />;
+            return (
+              <ArticleList
+                articles={this.state.article}
+                setTheState={this.setTheState}
+              />
+            );
           }}
         />
         <Route

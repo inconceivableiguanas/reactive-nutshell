@@ -15,20 +15,7 @@
       "completion": "False"
     }
   ],
-  "article": [
-    {
-      "name": "test",
-      "id": "1",
-      "synopsis": "test",
-      "url": "test"
-    },
-    {
-      "name": "Cool Things Happening",
-      "id": "2",
-      "synopsis": "Oh boy did they happen",
-      "url": "google.biz"
-    }
-  ],
+  "article": [],
   "friend": [
     {
       "userId": "0",
