@@ -1,30 +1,30 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-const Event = ({ event, children, deleteEvent, editEvent }) => {
+const Events = ({ event, children, deleteEvents, editEvents }) => {
   return (
-    <div className="event-card" style={{ width: `18rem` }}>
-      <div className="event-card-body">
-        <h5 className="event-card-title">{children.name}</h5>
-        <p className="event-card-text">{children.location}</p>
-        <p className="event-card-text">{children.date}</p>
-        <button onClick={() => deleteEvent(event.id)}>DELETE</button>
-        {
-          <button>
-            <Link
-              className="event-card-link"
-              to={{
-                pathname: "/eventForm",
-                state: { event: event }
-              }}
-            >
-              Edit Event
-            </Link>
-          </button>
-        }
+    <div className="events-card" style={{ width: `18rem` }}>
+      <div className="events-card-body">
+        <h5 className="events-card-title">{children.name}</h5>
+        <p className="events-card-text">{children.date}</p>
+        <p className="events-card-text">{children.placeOf}</p>
       </div>
+      <button onClick={() => deleteEvents(this.props.events.id)}>DELETE</button>
+      {
+        <button>
+          <Link
+            className="events-card-link"
+            to={{
+              pathname: "/eventsForm",
+              state: { events: event }
+            }}
+          >
+            Edit Events
+          </Link>
+        </button>
+      }
     </div>
   );
 };
 
-export default Event;
+export default Events;

@@ -6,15 +6,24 @@ import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
+import ApiManager from "./APIManager";
 
 export default class ApplicationViews extends Component {
   state = {
-    event: [],
+    events: [],
     task: [],
     article: [{ name: "Dogshit" }],
     friends: [],
     chat: [],
     users: []
+  };
+
+  setEventState = () => {
+    ApiManager.getAll("events").then(event =>
+      this.setState({
+        events: event
+      })
+    );
   };
 
   render() {
@@ -27,9 +36,9 @@ export default class ApplicationViews extends Component {
           path="/"
           render={props => {
             return <Home />;
-            // <Home home={props.location.state.home}>
-            //   {props.location.state.home.name}
-            // </Home>
+            <Home home={props.location.state.home}>
+              {props.location.state.home.name}
+            </Home>;
           }}
         />
 
@@ -63,7 +72,14 @@ export default class ApplicationViews extends Component {
         <Route
           path="/events"
           render={state => {
-            return <EventsList events={this.state.event} />;
+            return (
+              <EventsList
+                events={this.state.events}
+                setEventState={this.setEventState}
+              >
+                {this.state.events}
+              </EventsList>
+            );
           }}
         />
 

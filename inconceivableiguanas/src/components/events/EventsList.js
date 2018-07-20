@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Event from "./Events";
-import APIHandler from "./../APIHandler";
-import EventForm from ".EventForm";
-import "react-datepicker/dist/react-datepicker.css";
+import Events from "./Events";
+import ApiManager from "../../APIManager";
+import EventsForm from "./EventsForm";
+// import "react-datepicker/dist/react-datepicker.css";
 
 export default class EventsList extends Component {
-  componentDidMount = () => {
-    APIHandler.getData("events").then(events =>
-      this.setState({
-        events: events
-      })
-    );
-  };
-  deleteEvent = id => {
-    APIHandler.deleteData("events", id)
+  componentDidMount() {
+    this.props.setEventState();
+  }
+  deleteEvents = id => {
+    ApiManager.deleteItem("events", id)
       .then(() => {
-        return APIHandler.getData("events");
+        return ApiManager.getAll("events");
       })
       .then(eventsList => {
         this.setState({
@@ -30,25 +26,25 @@ export default class EventsList extends Component {
         {
           <button>
             <Link
-              className="event-card-link"
+              className="events-card-link"
               to={{
-                pathname: "/eventForm",
-                state: {}
+                pathname: "/eventsForm",
+                setState: {}
               }}
             >
               New Event
             </Link>
           </button>
         }
-        {this.state.events.map(event => (
-          <Event
+        {this.props.events.map(event => (
+          <Events
             key={event.id}
             event={event}
-            deleteEvent={this.deleteEvent}
-            editEvent={this.editEvent}
+            deleteEvents={this.deleteEvents}
+            editEvents={this.editEvents}
           >
             {event}
-          </Event>
+          </Events>
         ))}
       </React.Fragment>
     );
