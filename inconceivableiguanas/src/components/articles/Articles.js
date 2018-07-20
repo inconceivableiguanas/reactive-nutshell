@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 export default class Articles extends Component {
   render() {
     let propart = this.props.article;
+    console.log("ARTICLES TODO", this.props.article);
     return (
       <React.Fragment>
         <div>
