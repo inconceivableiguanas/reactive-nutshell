@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import Api from "./APIManager";
 import Events from "./components/events/Events";
 import ArticleList from "./components/articles/ArticleList";
 import Chat from "./components/chat/Chat";
@@ -8,16 +9,31 @@ import Todo from "./components/toDo/Todo";
 import Home from "./Home";
 import Friends from "./components/friends/Friends"
 export default class ApplicationViews extends Component {
+  
   state = {
     event: [],
     task: [],
     article: [{ name: "Dogshit" }],
-    friends: [{name: "Tom"}],
+    friends: [],
     chat: [],
     users: []
   };
-
+  
+  friendState = () => {
+    Api.getAll("friends")
+    .then(friend => {
+        this.setState({friends: friend});
+    })
+  }
+  userState = () => {
+    Api.getAll("users")
+    .then(user => {
+      this.setState({users: user})
+    })
+  }
+    
   render() {
+    
     return (
       <React.Fragment>
         <h1>App Views</h1>
@@ -74,7 +90,7 @@ export default class ApplicationViews extends Component {
         <Route
           path="/friends" 
           render={props => {
-            return <FriendsList friends={this.state.friends} />
+            return <FriendsList friends={this.state.friends} users={this.state.users} friendState={this.friendState} userState={this.userState} />
           }} />
       </React.Fragment>
     );

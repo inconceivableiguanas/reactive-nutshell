@@ -1,10 +1,12 @@
 import React from "react";
 
 export default props => {
-    return(
-        <div>
-            <label>{props.friends.name}</label>
-            <button>X</button>
-        </div>
-    )
+    props.users.map(user =>{
+        return (
+            <div>
+                <label>{user.name}</label>
+                <button>X</button>
+            </div>
+        )
+    })
 }
