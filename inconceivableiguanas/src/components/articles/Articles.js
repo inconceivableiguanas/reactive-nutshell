@@ -1,15 +1,24 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
 
 export default class Articles extends Component {
+  // this.props.deleteArticle;
+
   render() {
     let propart = this.props.article;
     return (
-      <React.Fragment>
-        <div>
-          <h5>{propart.name}</h5>
-        </div>
-      </React.Fragment>
+      <div>
+        <a href={propart.url}>
+          <h2>{propart.name}</h2>
+        </a>
+        <h5>{propart.synopsis}</h5>
+        <button
+          type="submit"
+          id="deleteArticle"
+          onClick={() => this.props.delete(propart.id)}
+        >
+          DELETE
+        </button>
+      </div>
     );
   }
 }
