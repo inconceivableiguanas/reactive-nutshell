@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Events from "./Events";
-import ApiManager from "../../APIManager";
+import APIManager from "../../APIManager";
 import EventsForm from "./EventsForm";
 // import "react-datepicker/dist/react-datepicker.css";
 
@@ -12,7 +12,7 @@ export default class EventsList extends Component {
   deleteEvents = id => {
     ApiManager.deleteItem("events", id)
       .then(() => {
-        return ApiManager.getAll("events");
+        return APIManager.getAll("events");
       })
       .then(eventsList => {
         this.setState({

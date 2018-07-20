@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ApiManager from "../../APIManager";
+import APIManager from "../../APIManager";
 import { Link } from "react-router-dom";
 
 export default class EventsForm extends Component {
@@ -30,7 +30,7 @@ export default class EventsForm extends Component {
       console.log(body);
       ApiManager.patchItem("events", eventsId, body)
         .then(() => {
-          return ApiManager.getAll("events");
+          return APIManager.getAll("events");
         })
         .then(eventsList => {
           this.setState({
@@ -48,7 +48,7 @@ export default class EventsForm extends Component {
         date: eventsDate
       };
       console.log(eventsDate);
-      ApiManager.addData("events", body)
+      APIManager.addData("events", body)
         .then(() => {
           return ApiManager.getAll("events");
         })
