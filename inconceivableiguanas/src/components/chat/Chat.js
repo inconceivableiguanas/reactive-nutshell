@@ -1,35 +1,48 @@
 import React, { Component } from "react";
 import ChatDom from "./ChatDOM"
+import APIManager from "../../APIManager.js"
 
+let dataObject ={
+   message:"",
+   userId:"9"
+}
 export default class Chat extends Component {
     state={
-        messages:[]
+        chat:[]
     }
-    handleFieldChange = evt => {
+    componentDidMount(){
+        APIManager.getAll("chat").then(chat=>this.setState({chat:chat}))
+    }
+    
+    handleFieldChange = evt => { //used on add chat input
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;
         this.setState(stateToChange);
     };
-render() {
+    
+    addMessage = (messageObject) => {
+        APIManager.postItem("chat",messageObject)
+    }
+    render() {
     return (
       <React.Fragment>
-        <div className="card Chat Area" style={{width: `18rem`}}>Chat Area
+        <div className="card chat-area" style={{width: `18rem`}}>Chat Area
             <div className="card-body">
 
         </div>
-        {this.state.messages.map(message => (
+        {this.state.chat.map(chat => (
             <ChatDom
-              key={message.id}
-              messages={message}
+              key={chat.id}
+              chat={chat} //?
             />
           ))}
-    <form>
+    <form onSubmit={this.addMessage}>
       
       <label>
           New Message:
-          <input type="text" id = "message" onChange={this.handleFieldChange} />
+          <input type="text" id = "chat.message" onChange={this.handleFieldChange} />
         </label>
-        <button type="submit" onClick={() => console.log("Stuff")}> 
+        <button type="submit"> 
                     Add New Message
                 </button>
       </form>

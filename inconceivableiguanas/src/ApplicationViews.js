@@ -13,7 +13,6 @@ export default class ApplicationViews extends Component {
     task: [],
     article: [{ name: "Dogshit" }],
     friends: [],
-    chat: [],
     users: []
   };
 
@@ -54,9 +53,8 @@ export default class ApplicationViews extends Component {
           path="/chat"
           render={props => {
             return (
-              <Chat chat={this.state.chat}>
+              <Chat chat={this.state.chat}/>
                 
-              </Chat>
             );
           }}
         />
