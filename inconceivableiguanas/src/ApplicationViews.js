@@ -20,17 +20,17 @@ export default class ApplicationViews extends Component {
   };
   
   friendState = () => {
-    Api.getAll("friends")
+    Api.friendsExpand("1")
     .then(friend => {
         this.setState({friends: friend});
     })
   }
-  userState = () => {
-    Api.getAll("users")
-    .then(user => {
-      this.setState({users: user})
-    })
-  }
+  // userState = () => {
+  //   Api.getAll("users")
+  //   .then(user => {
+  //     this.setState({users: user})
+  //   })
+  // }
     
   render() {
     

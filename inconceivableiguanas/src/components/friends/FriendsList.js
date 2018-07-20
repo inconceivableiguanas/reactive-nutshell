@@ -3,13 +3,12 @@ import Friends from "./Friends";
 import Api from "../../APIManager";
 export default class FriendsList extends Component {
     componentDidMount() {
-        this.props.userState();
+        // this.props.userState();
         this.props.friendState();
     }
-    render() {
-        console.log(this.props);
-        
+    render() {   
         let friends = this.props.friends;
+        console.log(friends);
         
         return (
             <React.Fragment>
@@ -17,8 +16,8 @@ export default class FriendsList extends Component {
             <label>Search for Friends</label>
             <input id="friendSearch"></input>
             <div>
-            {friends.map(friends => (
-                <Friends friends={friends} users={this.props.users}/>
+            {friends.map(oneFriend => (
+                <Friends friends={oneFriend} />
             ))}
             </div>
             </React.Fragment>
