@@ -1,29 +1,29 @@
 {
-"event":[
+  "event": [
     {
-    "name":"test",
-    "id":"0",
-    "dateOf":"2018-07-04",
-    "place":"NSS"
+      "name": "test",
+      "id": "0",
+      "dateOf": "2018-07-04",
+      "place": "NSS"
     }
-],
-"task":[
+  ],
+  "task": [
     {
-        "name":"test",
-        "id":"0",
-        "date":"2018-07-04",
-        "completion":"False"
+      "name": "test",
+      "id": "0",
+      "date": "2018-07-04",
+      "completion": "False"
     }
-],
-"article":[
+  ],
+  "article": [
     {
-        "name":"test",
-        "id":"0",
-        "synopsis":"test",
-        "url":"test"
+      "name": "test",
+      "id": "0",
+      "synopsis": "test",
+      "url": "test"
     }
-],
-"friends":[
+  ],
+  "friends": [
     {
         "yourId":"0",
         "id":"0",
@@ -39,15 +39,33 @@
         "id":"3",
         "userId":"1"
     }
+  ],
+  "chat": [
+
 ],
 "chat":[
     {
-        "id":"0",
-        "message":"test",
-        "userId":"0"
+      "message": "hello",
+      "userId": "9",
+      "id": 1
+    },
+    {
+      "message": "howdy",
+      "userId": "9",
+      "id": 2
+    },
+    {
+      "message": "hi",
+      "userId": "9",
+      "id": 3
+    },
+    {
+      "message": "hello hello",
+      "userId": "9",
+      "id": 4
     }
-],
-"users":[
+  ],
+  "users": [
     {
     "id":"0",
     "name":"test",
