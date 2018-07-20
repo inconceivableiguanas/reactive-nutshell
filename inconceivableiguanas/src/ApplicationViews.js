@@ -2,16 +2,19 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Events from "./components/events/Events";
 import ArticleList from "./components/articles/ArticleList";
+import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
 import ToDoList from "./components/toDo/ToDoList";
 import Home from "./Home";
+
 import EditChat from "./components/chat/EditChat"
 import APIManager from "./APIManager";
+
 export default class ApplicationViews extends Component {
   state = {
     event: [],
-<<<<<<< HEAD
+
     tasks: [
       {
         name: "dogshit",
@@ -19,15 +22,17 @@ export default class ApplicationViews extends Component {
         date: "2018-07-2018",
         completion: "false"
       }
-    ],
-=======
-    task: [],
+    ], 
     chat:[],
->>>>>>> master
     article: [{ name: "Dogshit" }],
     friends: [],
     users: []
   };
+  // AUSTINS BIG OL ARTICLE DUMP
+  setTheState = () => {
+    APIManager.getAll("article?_sort=id&order=desc").then(articles =>
+      this.setState({
+        article: articles
    // SHU'S BIG OL CHAT DUMP
    setTheState = () => {
     APIManager.getAll("chat").then(chats =>
@@ -37,6 +42,7 @@ export default class ApplicationViews extends Component {
     );
   };
 
+  // END OF ARTICLE DUMP
   // END OF CHAT DUMP
 
   render() {
@@ -54,11 +60,26 @@ export default class ApplicationViews extends Component {
             // </Home>
           }}
         />
-
+        <Route
+          path="/articles/:articleId"
+          render={props => {
+            return (
+              <Articles article={props.location.state.Articles}>
+                {props.location.state.Articles.name}
+                {console.log(props.location.state)}
+              </Articles>
+            );
+          }}
+        />
         <Route
           path="/articles"
           render={state => {
-            return <ArticleList articles={this.state.article} />;
+            return (
+              <ArticleList
+                articles={this.state.article}
+                setTheState={this.setTheState}
+              />
+            );
           }}
         />
         <Route
