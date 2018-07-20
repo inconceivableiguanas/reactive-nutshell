@@ -23,18 +23,27 @@
       "url": "test"
     }
   ],
-  "friends": [
-    {
-      "userId": "0",
-      "id": "0",
-      "friendId": "1"
-    }
-  ],
+  "friends": [],
   "chat": [
     {
-      "message": "i dont know",
+      "message": "hello",
       "userId": "9",
       "id": 1
+    },
+    {
+      "message": "howdy",
+      "userId": "9",
+      "id": 2
+    },
+    {
+      "message": "hi",
+      "userId": "9",
+      "id": 3
+    },
+    {
+      "message": "hello hello",
+      "userId": "9",
+      "id": 4
     }
   ],
   "users": [

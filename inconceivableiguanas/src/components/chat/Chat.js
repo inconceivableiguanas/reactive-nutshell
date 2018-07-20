@@ -8,7 +8,8 @@ export default class Chat extends Component {
         chat:[]
     }
     componentDidMount(){
-        APIManager.getAll("chat").then(chat=>this.setState({chat:chat}))
+        //passing a sort into collection
+        APIManager.getAll("chat?_sort=id&_order=asc").then(chat=>this.setState({chat:chat}))
     }
     
     dataObject ={}
@@ -25,6 +26,17 @@ export default class Chat extends Component {
         console.log(" in addMessage")
         APIManager.postItem("chat",{message:this.state.message,userId:this.state.userId})
     }
+    editMessage = (chatId) =>{
+        APIManager.deleteItem("chat",chatId)
+        .then(() => {
+            return APIManager.getAll("chat?_sort=id&_order=asc")
+          })      
+          .then(chatList => {
+            this.setState({
+              chat: chatList
+            });
+          });
+      };
     render() {
     return (
       <React.Fragment>
@@ -36,6 +48,7 @@ export default class Chat extends Component {
             <ChatDom
               key={chat.id}
               chat={chat} //?
+              editMessage ={this.editMessage}
             />
           ))}
     <form onSubmit={this.addMessage}>
