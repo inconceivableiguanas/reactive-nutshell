@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "events": [
     {
       "name": "test",
@@ -18,17 +17,9 @@
       "id": 1,
       "date": "03-08-2019",
       "placeOf": "Shitty Dog Park"
-=======
-  "event": [
-    {
-      "name": "test",
-      "id": "0",
-      "dateOf": "2018-07-04",
-      "place": "NSS"
->>>>>>> master
     }
   ],
-  "task": [
+  "toDo": [
     {
       "name": "test",
       "id": "0",
@@ -44,7 +35,6 @@
       "url": "test"
     }
   ],
-<<<<<<< HEAD
   "friends": [
     {
       "userId": "0",
@@ -52,13 +42,6 @@
       "friendId": "1"
     }
   ],
-  "chat": [
-    {
-      "id": "0",
-      "message": "test",
-      "userId": "0"
-=======
-  "friends": [],
   "chat": [
     {
       "message": "hello",
@@ -79,7 +62,6 @@
       "message": "hello hello",
       "userId": "9",
       "id": 4
->>>>>>> master
     }
   ],
   "users": [
@@ -89,8 +71,4 @@
       "email": "test@test.com"
     }
   ]
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

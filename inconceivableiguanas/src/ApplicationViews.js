@@ -4,13 +4,17 @@ import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
-import Todo from "./components/toDo/Todo";
+import ToDoList from "./components/toDo/ToDoList";
 import Home from "./Home";
 import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
 export default class ApplicationViews extends Component {
   state = {
     events: [],
+    task: [],
+    chat: [],
+    event: [],
+    tasks: [],
     task: [],
     chat: [],
     article: [{ name: "Dogshit" }],
@@ -60,12 +64,9 @@ export default class ApplicationViews extends Component {
         />
         <Route
           path="/todo"
-          render={props => {
-            return (
-              <Todo todo={props.location.state.todo}>
-                {props.location.state.todo}
-              </Todo>
-            );
+          render={state => {
+            //key is todo, value is the array of tasks
+            return <ToDoList toDos={this.state.tasks} />;
           }}
         />
 
