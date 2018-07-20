@@ -15,7 +15,20 @@
       "completion": "False"
     }
   ],
-  "article": [],
+  "article": [
+    {
+      "name": "oh shit",
+      "synopsis": "it works",
+      "url": "http://www.dogshit.com",
+      "id": "uqH1oi3"
+    },
+    {
+      "name": "Look",
+      "synopsis": "Check this cool summary",
+      "url": "www.google.com",
+      "id": "FlRwQN1"
+    }
+  ],
   "friend": [
     {
       "userId": "0",
