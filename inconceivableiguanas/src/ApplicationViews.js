@@ -38,13 +38,13 @@ export default class ApplicationViews extends Component {
     )
   }
    // SHU'S BIG OL CHAT DUMP
-   setTheState = () => {
-    APIManager.getAll("chat").then(chats =>
-      this.setState({
-        chat: chats
-      })
-    );
-  };
+  //  setTheState = () => {
+  //   APIManager.getAll("chat").then(chats =>
+  //     this.setState({
+  //       chat: chats
+  //     })
+  //   );
+  // };
 
   // END OF ARTICLE DUMP
   // END OF CHAT DUMP
@@ -110,13 +110,7 @@ export default class ApplicationViews extends Component {
         <Route exact path="/chat/:chatId/edit" render={(props) => {
           return <EditChat chat={props.location.state.chat} {...props}/>
         }} />
-        <Route
-          exact
-          path="/chat/:chatId/edit"
-          render={props => {
-            return <EditChat chat={props.location.state.chat} />;
-          }}
-        />
+        
         <Route
           path="/events"
           render={state => {
