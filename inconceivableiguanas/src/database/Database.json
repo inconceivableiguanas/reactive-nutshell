@@ -69,6 +69,12 @@
       "synopsis": "asfdsascf",
       "url": "http://www.yeahboi.com",
       "id": "lVxNm47"
+    },
+    {
+      "name": "Bizarre in the Boro: Fired employee threatens to have sex with boss's wife",
+      "synopsis": "Bizarre Behavior",
+      "url": "https://www.murfreesborovoice.com/article/1396/bizarre-in-the-boro-fired-employee-threatens-to-have-sex-with-bosss-wife",
+      "id": "fuFBsHn"
     }
   ],
   "friend": [
@@ -97,6 +103,10 @@
     {
       "message": "Aloha",
       "id": 1
+    },
+    {
+      "message": "Hello from the snackery",
+      "id": 2
     }
   ],
   "users": [
