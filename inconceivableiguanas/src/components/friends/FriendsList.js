@@ -8,7 +8,7 @@ export default class FriendsList extends Component {
     }
     render() {   
         let friends = this.props.friends;
-        console.log(friends);
+        // console.log(friends);
         
         return (
             <React.Fragment>
