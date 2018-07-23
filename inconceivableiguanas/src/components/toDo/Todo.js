@@ -4,12 +4,14 @@ import { Route } from "react-router-dom";
 
 export default class Todo extends Component {
   render() {
-    let propToDo = this.props.toDo;
-    console.log("PROPS TODO", this.props.toDo);
+    //this is toDo from the proptask map on ToDoMaker
+    let propTask = this.props.toDo;
+    console.log("PROPS tasks", this.props.toDo);
     return (
       <React.Fragment>
         <div>
-          <h5>{propToDo.name}</h5>
+          <h4>{propTask.name}</h4>
+          <p>{propTask.date}</p>
         </div>
       </React.Fragment>
     );

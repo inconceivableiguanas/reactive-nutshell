@@ -1,62 +1,75 @@
 //leah gwin 2018
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import Todo from "./Todo";
 
-class TodoList extends Component {
-  //getting ready to intialize local state and bind event handler
-  constructor(props) {
-    //used to access and call functions on the parent
-    super(props);
-    //setting local state here
-    this.state = {
-      items: []
-    };
-    //ensure the 'this' keyword resolves properly
-    this.addItem = this.addItem.bind(this);
+export default class TodoForm extends Component {
+  state = { clicked: "" };
+
+  componentDidMount() {
+    this.props.setTaskState();
   }
-  //   define our addItem event handler
-  addItem(e) {
-    if (this._inputElement.value !== "") {
-      var newItem = {
-        text: this._inputElement.value,
-        key: Date.now()
-      };
 
-      this.setState(prevState => {
-        return {
-          items: prevState.items.concat(newItem)
-        };
+  addNewTask = event => {
+    event.preventDefault();
+    const taskName = event.target.taskName.value;
+    const dueDate = event.target.dueDate.value;
+
+    fetch("http://localhost:5002/todo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      body: JSON.stringify({
+        name: taskName,
+        date: dueDate
+      })
+    })
+      .then(() => {
+        return fetch("http://localhost:5002/todo");
+      })
+      .then(a => a.json())
+      .then(this.props.setTaskState)
+      .then(this.setState({ clicked: "" }));
+  };
+
+  taskFormLauncher = () => {
+    if (this.state.clicked === "") {
+      this.setState({
+        clicked: (
+          <form onSubmit={this.addNewTask}>
+            <label>Task Name</label>
+            <input id="taskName" name="ArticleTitle" type="text" />
+            <label>Article Summary</label>
+            <input id="dueDate" name="dueDate" type="text" />
+            <button type="submit">Submit</button>
+          </form>
+        )
       });
-
-      this._inputElement.value = "";
+    } else {
+      this.setState({ clicked: "" });
     }
-
-    console.log(this.state.items);
-
-    e.preventDefault();
-  }
+  };
 
   render() {
+    //this todos is from the appviews
+    let propTask = this.props.toDos;
+    console.log("proptask", propTask);
+
     return (
-      <div className="todoListMain">
-        <div className="header">
-          {/* calls the event handler on submit */}
-          <form onSubmit={this.addItem}>
-            <input
-              // storing a reference to our input element
-              ref={a => (this._inputElement = a)}
-              placeholder="enter task"
-            />
-            <input
-              ref={a => (this._inputElement = a)}
-              placeholder="enter date"
-            />
-            <button type="submit">add</button>
-          </form>
+      <React.Fragment>
+        <div>
+          <button className="addTask" onClick={this.taskFormLauncher}>
+            Add Task
+          </button>
         </div>
-      </div>
+        {this.state.clicked}
+
+        {propTask.map(task => (
+          //the first ToDo is the import(name of the component), then we're passing in the individual task from the array to then assign it a key w/ an id and set it to a variable to be called later(on the other side itll be called props.toDo)
+          <Todo key={task.id} toDo={task} />
+        ))}
+      </React.Fragment>
     );
   }
 }
-
-//thinking of deleting my modal and going with this simple form input instead.
