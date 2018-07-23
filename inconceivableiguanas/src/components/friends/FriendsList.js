@@ -17,7 +17,7 @@ export default class FriendsList extends Component {
             <input id="friendSearch"></input>
             <div>
             {friends.map(oneFriend => (
-                <Friends friends={oneFriend} />
+                <Friends key={oneFriend.id} friends={oneFriend} />
             ))}
             </div>
             </React.Fragment>
