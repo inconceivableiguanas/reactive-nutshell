@@ -1,25 +1,41 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import Api from "./APIManager";
+import Events from "./components/events/Events";
 import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
+import FriendsList from "./components/friends/FriendsList";
+import Todo from "./components/toDo/Todo";
+import Home from "./Home";
 import Friends from "./components/friends/Friends";
 import ToDoList from "./components/toDo/ToDoList";
-import Home from "./Home";
 import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
 export default class ApplicationViews extends Component {
   state = {
     events: [],
-    task: [],
     tasks: [],
     article: [],
     friends: []
   };
+
+  friendState = () => {
+    Api.friendsExpand("1").then(friend => {
+      this.setState({ friends: friend });
+    });
+  };
+  // userState = () => {
+  //   Api.getAll("users")
+  //   .then(user => {
+  //     this.setState({users: user})
+  //   })
+  // }
+
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
-    APIManager.getAll("article?_sort=id&order=desc").then(articles =>
+    APIManager.getAll("article?_sort=timestamp&order=desc").then(articles =>
       this.setState({
         article: articles
       })
@@ -39,8 +55,6 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>App Views</h1>
-
         <Route
           exact
           path="/"
@@ -111,9 +125,12 @@ export default class ApplicationViews extends Component {
           path="/friends"
           render={props => {
             return (
-              <Friends friends={props.location.state.friends}>
-                {props.location.state.friends}
-              </Friends>
+              <FriendsList
+                friends={this.state.friends}
+                users={this.state.users}
+                friendState={this.friendState}
+                userState={this.userState}
+              />
             );
           }}
         />

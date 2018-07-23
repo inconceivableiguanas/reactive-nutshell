@@ -47,6 +47,11 @@ const ApiManager = Object.create(
           body: JSON.stringify(dataObject)
         });
       }
+    },
+    friendsExpand: {
+      value: (yourId) => {
+        return fetch(`http://localhost:5002/friends?_expand=user&yourId=${yourId}`).then(e => e.json())
+      }
     }
   }
 );
