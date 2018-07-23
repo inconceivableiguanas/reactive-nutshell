@@ -78,10 +78,6 @@
   "friends": [],
   "chat": [
     {
-<<<<<<< HEAD
-      "userId": 1,
-=======
->>>>>>> master
       "message": "Aloha",
       "id": 1
     },
