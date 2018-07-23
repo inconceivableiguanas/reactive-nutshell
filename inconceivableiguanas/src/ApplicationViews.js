@@ -10,42 +10,34 @@ import FriendsList from "./components/friends/FriendsList";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
 import Friends from "./components/friends/Friends";
-import Home from "./Home";
 import TodoForm from "./components/toDo/ToDoMaker";
 import ToDoMaker from "./components/toDo/ToDoMaker";
-
 import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
-
 export default class ApplicationViews extends Component {
-  
   state = {
     events: [],
-    event: [],
     tasks: [],
     chat: [],
     article: [],
     friends: [],
     users: []
   };
-  
+
   friendState = () => {
-    Api.friendsExpand("1")
-    .then(friend => {
-        this.setState({friends: friend});
-    })
-  }
-    
+    Api.friendsExpand("1").then(friend => {
+      this.setState({ friends: friend });
+    });
+  };
+
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
-    APIManager.getAll("article?_sort=id&order=desc").then(articles =>
+    APIManager.getAll("article?_sort=timestamp&order=desc").then(articles =>
       this.setState({
         article: articles
       })
-    )
-  }
-   
-
+    );
+  };
 
   setEventState = () => {
     APIManager.getAll("events").then(event =>
@@ -65,7 +57,6 @@ export default class ApplicationViews extends Component {
   };
 
   render() {
-    
     return (
       <React.Fragment>
         <Route
@@ -111,7 +102,9 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          exact path="/chat" render={props => {
+          exact
+          path="/chat"
+          render={props => {
             return <Chat chat={this.state.chat} />;
           }}
         />
@@ -138,10 +131,18 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          path="/friends" 
+          path="/friends"
           render={props => {
-            return <FriendsList friends={this.state.friends} users={this.state.users} friendState={this.friendState} userState={this.userState} />
-          }} />
+            return (
+              <FriendsList
+                friends={this.state.friends}
+                users={this.state.users}
+                friendState={this.friendState}
+                userState={this.userState}
+              />
+            );
+          }}
+        />
       </React.Fragment>
     );
   }
