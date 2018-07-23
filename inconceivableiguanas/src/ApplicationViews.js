@@ -21,15 +21,37 @@ export default class ApplicationViews extends Component {
     chat: [],
     article: [],
     friends: [],
-    users: []
+    users: [],
+    results: [],
   };
 
   friendState = () => {
-    Api.friendsExpand("1").then(friend => {
-      this.setState({ friends: friend });
-    });
-  };
-
+    Api.friendsExpand("1")
+    .then(friend => {
+        this.setState({friends: friend});
+    })
+  }
+  friendSearch = (inputVal) => {
+    Api.getAll(`users?q=${inputVal}`)
+    .then(response => {
+        this.setState({results: response})
+        // console.log("This is running");
+        
+})
+}
+  addFriend = (yourId, userId) => {
+    Api.postFriend(yourId, userId)
+    .then(response => {
+        this.friendState()
+      })
+  }
+  // userState = () => {
+  //   Api.getAll("users")
+  //   .then(user => {
+  //     this.setState({users: user})
+  //   })
+  // }
+    
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
     APIManager.getAll("article?_sort=timestamp&order=desc").then(articles =>
@@ -133,16 +155,8 @@ export default class ApplicationViews extends Component {
         <Route
           path="/friends"
           render={props => {
-            return (
-              <FriendsList
-                friends={this.state.friends}
-                users={this.state.users}
-                friendState={this.friendState}
-                userState={this.userState}
-              />
-            );
-          }}
-        />
+            return <FriendsList friends={this.state.friends} addFriend={this.addFriend} results={this.state.results} friendSearch={this.friendSearch} users={this.state.users} friendState={this.friendState} userState={this.userState} />
+          }} />
       </React.Fragment>
     );
   }
