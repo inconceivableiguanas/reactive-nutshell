@@ -45,53 +45,32 @@
   ],
   "article": [
     {
-      "name": "oh shit",
-      "synopsis": "it works",
-      "url": "http://www.dogshit.com",
-      "id": "uqH1oi3"
-    },
-    {
       "name": "Look",
+      "synopsis": "thing ",
+      "url": "http://www.yeahboi.com",
+      "timestamp": "2018-07-30 11:04:40 am",
+      "id": 1
+    },
+    {
+      "name": "PLEASE WORK",
+      "synopsis": "asdfg",
+      "url": "http://www.yeahboi.com",
+      "timestamp": "2018-07-23 11:04:52 am",
+      "id": 2
+    },
+    {
+      "name": "oh shit",
       "synopsis": "Check this cool summary",
-      "url": "www.google.com",
-      "id": "FlRwQN1"
-    },
-    {
-      "name": "asd",
-      "synopsis": "asdf",
-      "url": "asdf",
-      "id": "myjN8yO"
-    },
-    {
-      "name": "yoyoyo",
-      "synopsis": "yoyoyo",
-      "url": "yoyyoyoyo.com",
-      "id": "vP2aPyc"
-    },
-    {
-      "name": "test",
-      "synopsis": "workplease",
-      "url": "google.com",
-      "id": "LnrT2FD"
+      "url": "http://www.yeahboi.com",
+      "timestamp": "2018-07-22 11:06:43 am",
+      "id": 3
     },
     {
       "name": "asdf",
       "synopsis": "asdf",
       "url": "http://www.dogshit.com",
-      "id": "8zQPTCG"
-    },
-    {
-      "name": "asdf",
-      "synopsis": "asfdsascf",
-      "url": "http://www.yeahboi.com",
-      "id": "lVxNm47"
-    }
-  ],
-  "friend": [
-    {
-      "userId": "0",
-      "id": "0",
-      "friendId": "1"
+      "timestamp": "2018-07-23 11:32:02 am",
+      "id": 4
     }
   ],
   "user": [
@@ -102,17 +81,16 @@
       "url": "test"
     }
   ],
-  "friends": [
-    {
-      "userId": "0",
-      "id": "0",
-      "friendId": "1"
-    }
-  ],
+  "friends": [],
   "chat": [
     {
       "message": "Aloha",
       "id": 1
+    },
+    {
+      "userId": 1,
+      "message": "howdy",
+      "id": 2
     }
   ],
   "users": [

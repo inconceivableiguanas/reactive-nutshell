@@ -1,46 +1,43 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import Api from "./APIManager";
+import Events from "./components/events/Events";
 import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
-import Friends from "./components/friends/Friends";
+import FriendsList from "./components/friends/FriendsList";
+import Todo from "./components/toDo/Todo";
 import Home from "./Home";
+import Friends from "./components/friends/Friends";
 import TodoForm from "./components/toDo/ToDoMaker";
 import ToDoMaker from "./components/toDo/ToDoMaker";
-
 import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
-
 export default class ApplicationViews extends Component {
   state = {
     events: [],
-    event: [],
     tasks: [],
     chat: [],
     article: [],
     friends: [],
     users: []
   };
+
+  friendState = () => {
+    Api.friendsExpand("1").then(friend => {
+      this.setState({ friends: friend });
+    });
+  };
+
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
-    APIManager.getAll("article?_sort=id&order=desc").then(articles =>
+    APIManager.getAll("article?_sort=timestamp&order=desc").then(articles =>
       this.setState({
         article: articles
       })
     );
   };
-  // SHU'S BIG OL CHAT DUMP
-  //  setTheState = () => {
-  //   APIManager.getAll("chat").then(chats =>
-  //     this.setState({
-  //       chat: chats
-  //     })
-  //   );
-  // };
-
-  // END OF ARTICLE DUMP
-  // END OF CHAT DUMP
 
   setEventState = () => {
     APIManager.getAll("events").then(event =>
@@ -62,8 +59,6 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>App Views</h1>
-
         <Route
           exact
           path="/"
@@ -139,9 +134,12 @@ export default class ApplicationViews extends Component {
           path="/friends"
           render={props => {
             return (
-              <Friends friends={props.location.state.friends}>
-                {props.location.state.friends}
-              </Friends>
+              <FriendsList
+                friends={this.state.friends}
+                users={this.state.users}
+                friendState={this.friendState}
+                userState={this.userState}
+              />
             );
           }}
         />
