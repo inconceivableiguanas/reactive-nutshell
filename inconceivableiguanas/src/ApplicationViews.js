@@ -20,9 +20,7 @@ export default class ApplicationViews extends Component {
   state = {
     events: [],
     task: [],
-    chat: [],
     event: [],
-
     tasks: [
       {
         name: "dogshit",
@@ -55,14 +53,17 @@ export default class ApplicationViews extends Component {
     APIManager.getAll("article?_sort=id&order=desc").then(articles =>
       this.setState({
         article: articles
-   // SHU'S BIG OL CHAT DUMP
-   setTheState = () => {
-    APIManager.getAll("chat").then(chats =>
-      this.setState({
-        chat: chats
       })
-    );
-  };
+    )
+  }
+   // SHU'S BIG OL CHAT DUMP
+  //  setTheState = () => {
+  //   APIManager.getAll("chat").then(chats =>
+  //     this.setState({
+  //       chat: chats
+  //     })
+  //   );
+  // };
 
   // END OF ARTICLE DUMP
   // END OF CHAT DUMP
@@ -86,9 +87,7 @@ export default class ApplicationViews extends Component {
           path="/"
           render={props => {
             return <Home />;
-            <Home home={props.location.state.home}>
-              {props.location.state.home.name}
-            </Home>;
+            
           }}
         />
         <Route
@@ -128,13 +127,10 @@ export default class ApplicationViews extends Component {
             return <Chat chat={this.state.chat} />;
           }}
         />
-        <Route
-          exact
-          path="/chat/:chatId/edit"
-          render={props => {
-            return <EditChat chat={props.location.state.chat} />;
-          }}
-        />
+        <Route exact path="/chat/:chatId/edit" render={(props) => {
+          return <EditChat chat={props.location.state.chat} {...props}/>
+        }} />
+        
         <Route
           path="/events"
           render={state => {

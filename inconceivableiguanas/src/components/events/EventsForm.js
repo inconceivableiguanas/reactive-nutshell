@@ -28,7 +28,7 @@ export default class EventsForm extends Component {
         date: eventsDate
       };
       console.log(body);
-      ApiManager.patchItem("events", eventsId, body)
+      APIManager.patchItem("events", eventsId, body)
         .then(() => {
           return APIManager.getAll("events");
         })
@@ -50,7 +50,7 @@ export default class EventsForm extends Component {
       console.log(eventsDate);
       APIManager.addData("events", body)
         .then(() => {
-          return ApiManager.getAll("events");
+          return APIManager.getAll("events");
         })
         .then(eventsList => {
           this.setState({
