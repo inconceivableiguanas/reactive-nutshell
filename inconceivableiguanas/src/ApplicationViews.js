@@ -10,10 +10,8 @@ import FriendsList from "./components/friends/FriendsList";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
 import Friends from "./components/friends/Friends";
-import Home from "./Home";
 import TodoForm from "./components/toDo/ToDoMaker";
 import ToDoMaker from "./components/toDo/ToDoMaker";
-
 import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
 export default class ApplicationViews extends Component {
