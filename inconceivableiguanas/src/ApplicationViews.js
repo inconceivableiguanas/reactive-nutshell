@@ -5,7 +5,6 @@ import ArticleList from "./components/articles/ArticleList";
 import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
-import ToDoList from "./components/toDo/ToDoList";
 import Home from "./Home";
 import TodoForm from "./components/toDo/ToDoMaker";
 import ToDoMaker from "./components/toDo/ToDoMaker";

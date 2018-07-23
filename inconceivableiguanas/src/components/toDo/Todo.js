@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 
 export default class Todo extends Component {
   render() {
-    //I DONT UNDERSTAND WHY THIS PROPTASK TODO IS SINGULAR ???
+    //this is toDo from the proptask map on ToDoMaker
     let propTask = this.props.toDo;
     console.log("PROPS tasks", this.props.toDo);
     return (

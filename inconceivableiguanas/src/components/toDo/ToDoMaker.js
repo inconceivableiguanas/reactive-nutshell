@@ -11,10 +11,11 @@ export default class TodoForm extends Component {
   }
 
   addNewTask = event => {
+    event.preventDefault();
     const taskName = event.target.taskName.value;
     const dueDate = event.target.dueDate.value;
 
-    fetch("http://localhost:5002/tasks", {
+    fetch("http://localhost:5002/todo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8"
@@ -25,10 +26,11 @@ export default class TodoForm extends Component {
       })
     })
       .then(() => {
-        return fetch("http://localhost:5002/tasks");
+        return fetch("http://localhost:5002/todo");
       })
       .then(a => a.json())
-      .then(this.props.setTaskState);
+      .then(this.props.setTaskState)
+      .then(this.setState({ clicked: "" }));
   };
 
   taskFormLauncher = () => {
@@ -50,14 +52,14 @@ export default class TodoForm extends Component {
   };
 
   render() {
-    //this tasks is from the appviews
+    //this todos is from the appviews
     let propTask = this.props.toDos;
     console.log("proptask", propTask);
 
     return (
       <React.Fragment>
         <div>
-          <button className="addTask" onClick={TodoForm.taskFormLauncher}>
+          <button className="addTask" onClick={this.taskFormLauncher}>
             Add Task
           </button>
         </div>
