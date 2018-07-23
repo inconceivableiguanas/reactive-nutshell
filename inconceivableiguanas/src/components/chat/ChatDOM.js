@@ -19,6 +19,7 @@ export default props => {
                 <p>User Id {props.chat.userId}</p>
 
                 <h3 className="card-text">{props.chat.message}</h3>
+                <button type="submit">Add Friend</button>
                 {
                     <Link className="card-link"
                     to={{
@@ -28,6 +29,7 @@ export default props => {
                         Edit
                     </Link>
                     }
+                    
                 </Content>
                 </CardContent>
             </section>

@@ -18,7 +18,7 @@ export default class EditChat extends Component {
 
   handleUpdate = e => {
     e.preventDefault();
-//creates dataObject need for fetch patch method
+  //creates dataObject need for fetch patch method
     const updatedChat = {message: this.state.message}
     ApiManager.updateItem("chat", this.props.chat.id, updatedChat)
     //returns to chat page. {...props} is needed to be passed in from ApplicationViews ofr .history to work

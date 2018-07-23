@@ -32,6 +32,7 @@ export default class ApplicationViews extends Component {
         this.setState({friends: friend});
     })
   }
+
     
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
