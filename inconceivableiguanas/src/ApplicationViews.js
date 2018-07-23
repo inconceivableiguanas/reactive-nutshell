@@ -32,12 +32,6 @@ export default class ApplicationViews extends Component {
         this.setState({friends: friend});
     })
   }
-  // userState = () => {
-  //   Api.getAll("users")
-  //   .then(user => {
-  //     this.setState({users: user})
-  //   })
-  // }
     
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
@@ -61,8 +55,6 @@ export default class ApplicationViews extends Component {
     
     return (
       <React.Fragment>
-        <h1>App Views</h1>
-
         <Route
           exact
           path="/"
@@ -102,9 +94,7 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          exact
-          path="/chat"
-          render={props => {
+          exact path="/chat" render={props => {
             return <Chat chat={this.state.chat} />;
           }}
         />
