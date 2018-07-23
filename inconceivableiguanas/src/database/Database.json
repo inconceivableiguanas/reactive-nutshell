@@ -70,6 +70,11 @@
     {
       "message": "Aloha",
       "id": 1
+    },
+    {
+      "userId": 1,
+      "message": "howdy",
+      "id": 2
     }
   ],
   "users": [

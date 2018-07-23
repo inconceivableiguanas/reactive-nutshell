@@ -17,8 +17,10 @@ export default class ApplicationViews extends Component {
   state = {
     events: [],
     tasks: [],
+    chat: [],
     article: [],
-    friends: []
+    friends: [],
+    users: []
   };
 
   friendState = () => {
@@ -26,12 +28,6 @@ export default class ApplicationViews extends Component {
       this.setState({ friends: friend });
     });
   };
-  // userState = () => {
-  //   Api.getAll("users")
-  //   .then(user => {
-  //     this.setState({users: user})
-  //   })
-  // }
 
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
@@ -41,8 +37,6 @@ export default class ApplicationViews extends Component {
       })
     );
   };
-  // END OF ARTICLE DUMP
-  // END OF CHAT DUMP
 
   setEventState = () => {
     APIManager.getAll("events").then(event =>
