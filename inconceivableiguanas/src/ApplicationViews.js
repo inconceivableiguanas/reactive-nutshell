@@ -8,24 +8,16 @@ import Friends from "./components/friends/Friends";
 import ToDoList from "./components/toDo/ToDoList";
 import Home from "./Home";
 
-import EditChat from "./components/chat/EditChat"
+import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
 
 export default class ApplicationViews extends Component {
   state = {
     events: [],
-    task: [],
     event: [],
-    tasks: [
-      {
-        name: "dogshit",
-        id: "1",
-        date: "2018-07-2018",
-        completion: "false"
-      }
-    ], 
-    chat:[],
-    article: [{ name: "Dogshit" }],
+    tasks: [],
+    chat: [],
+    article: [],
     friends: [],
     users: []
   };
@@ -35,9 +27,9 @@ export default class ApplicationViews extends Component {
       this.setState({
         article: articles
       })
-    )
-  }
-   // SHU'S BIG OL CHAT DUMP
+    );
+  };
+  // SHU'S BIG OL CHAT DUMP
   //  setTheState = () => {
   //   APIManager.getAll("chat").then(chats =>
   //     this.setState({
@@ -57,6 +49,15 @@ export default class ApplicationViews extends Component {
     );
   };
 
+  //leah's task DUMP
+  setTaskState = () => {
+    APIManager.getAll("toDo").then(tasks =>
+      this.setState({
+        tasks: tasks
+      })
+    );
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -67,7 +68,6 @@ export default class ApplicationViews extends Component {
           path="/"
           render={props => {
             return <Home />;
-            
           }}
         />
         <Route
@@ -107,10 +107,14 @@ export default class ApplicationViews extends Component {
             return <Chat chat={this.state.chat} />;
           }}
         />
-        <Route exact path="/chat/:chatId/edit" render={(props) => {
-          return <EditChat chat={props.location.state.chat} {...props}/>
-        }} />
-        
+        <Route
+          exact
+          path="/chat/:chatId/edit"
+          render={props => {
+            return <EditChat chat={props.location.state.chat} {...props} />;
+          }}
+        />
+
         <Route
           path="/events"
           render={state => {
