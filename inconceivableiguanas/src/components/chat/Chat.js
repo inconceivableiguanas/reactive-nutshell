@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ChatDom from "./ChatDOM"
 import APIManager from "../../APIManager.js"
-
+import "bulma/css/bulma.css";
+import { Card,CardHeader,CardHeaderTitle,Button} from 'bloomer';
 
 export default class Chat extends Component {
     state={
@@ -51,7 +52,13 @@ export default class Chat extends Component {
         
     return (
       <React.Fragment>
-        <div className="card chat-area" style={{width: `18rem`}}>Chat Area
+          <Card>
+          <CardHeader>
+        <CardHeaderTitle>
+        Chat Area
+        </CardHeaderTitle>
+        </CardHeader>
+        
             <div className="card-body"></div>
 
             {this.state.chat.map(chat => (
@@ -72,10 +79,11 @@ export default class Chat extends Component {
                 />
             </label>
 
-        <button type="submit">Add New Message</button>
+        <Button type="submit" isColor = "info">Add New Message</Button>
 
         </form>
-    </div>
+    
+    </Card>
       </React.Fragment>
     );
   }
