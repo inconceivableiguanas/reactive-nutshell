@@ -34,7 +34,9 @@ export default class Chat extends Component {
                     //({ chat, message }) is previous state destructured => new state destructured state with new property, empty message string sets input to empty string
                 ))
     }
+    addFriend =(userId) =>{
 
+    }
     editMessage = (chatId) =>{
         APIManager.updateItem("chat",chatId)
         .then(() => {
@@ -66,6 +68,7 @@ export default class Chat extends Component {
                 key={chat.id}
                 chat={chat} 
                 editMessage ={this.editMessage}
+                addFriend={this.addFriend}
                 />
             ))}
         <form onSubmit={this.addMessage}>
