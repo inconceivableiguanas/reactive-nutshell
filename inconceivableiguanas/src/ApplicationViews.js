@@ -11,7 +11,7 @@ import Todo from "./components/toDo/Todo";
 import Home from "./Home";
 import Friends from "./components/friends/Friends";
 import ToDoList from "./components/toDo/ToDoList";
-import Home from "./Home";
+// import Home from "./Home";
 import EditChat from "./components/chat/EditChat"
 import APIManager from "./APIManager";
 
