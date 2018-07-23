@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import APIManager from "../../APIManager";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default class EventsForm extends Component {
   constructor(props) {

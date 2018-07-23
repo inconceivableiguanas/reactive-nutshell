@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Events from "./Events";
 import APIManager from "../../APIManager";
-import EventsForm from "./EventsForm";
+// import EventsForm from "./EventsForm";
 // import "react-datepicker/dist/react-datepicker.css";
 
 export default class EventsList extends Component {
@@ -52,17 +52,7 @@ export default class EventsList extends Component {
       this.setState({ clicked: "" });
     }
   };
-  deleteEvents = id => {
-    APIManager.deleteItem("events", id)
-      .then(() => {
-        return APIManager.getAll("events");
-      })
-      .then(eventsList => {
-        this.setState({
-          events: eventsList
-        });
-      });
-  };
+
   render() {
     return (
       <React.Fragment>
@@ -73,7 +63,7 @@ export default class EventsList extends Component {
             <Events
               key={event.id}
               event={event}
-              deleteEvents={this.deleteEvents}
+              deleteEvents={this.props.deleteEvents}
               editEvents={this.editEvents}
             >
               {event}

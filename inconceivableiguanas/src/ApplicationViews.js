@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Api from "./APIManager";
-import Events from "./components/events/Events";
+// import Events from "./components/events/Events";
 import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Articles from "./components/articles/Articles";
@@ -20,7 +20,6 @@ export default class ApplicationViews extends Component {
   state = {
     events: [],
     task: [],
-    event: [],
     tasks: [
       {
         name: "dogshit",
@@ -68,11 +67,16 @@ export default class ApplicationViews extends Component {
   // END OF CHAT DUMP
 
   setEventState = () => {
-    APIManager.getAll("events").then(event =>
+    return APIManager.getAll("events").then(event =>
       this.setState({
         events: event
       })
     );
+  };
+  deleteEvents = id => {
+    APIManager.deleteItem("events", id).then(() => {
+      this.setEventState();
+    });
   };
 
   render() {
@@ -139,25 +143,24 @@ export default class ApplicationViews extends Component {
               <EventsList
                 events={this.state.events}
                 setEventState={this.setEventState}
+                deleteEvents={this.deleteEvents}
               >
                 {this.state.events}
               </EventsList>
             );
           }}
         />
-        <Route
-          path="/events/:eventsForm"
-          render={state => {
+        {/* <Route
+          path="/events/:eventId"
+          render={props => {
             return (
-              <EventsForm
-                events={this.state.events}
-                setEventState={this.setEventState}
-              >
-                {this.state.events}
-              </EventsForm>
+              <Events event={props.location.state.Events}>
+                {props.location.state.Events.name}
+                {console.log(props.location.state)}
+              </Events>
             );
           }}
-        />
+        /> */}
 
         <Route
           path="/friends"
