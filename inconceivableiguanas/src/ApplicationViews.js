@@ -10,17 +10,20 @@ import FriendsList from "./components/friends/FriendsList";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
 import Friends from "./components/friends/Friends";
-import ToDoList from "./components/toDo/ToDoList";
-// import Home from "./Home";
-import EditChat from "./components/chat/EditChat"
+import Home from "./Home";
+import TodoForm from "./components/toDo/ToDoMaker";
+import ToDoMaker from "./components/toDo/ToDoMaker";
+
+import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
 
 export default class ApplicationViews extends Component {
   
   state = {
     events: [],
-    tasks: [], 
-    chat:[],
+    event: [],
+    tasks: [],
+    chat: [],
     article: [],
     friends: [],
     users: []
@@ -43,10 +46,20 @@ export default class ApplicationViews extends Component {
   }
    
 
+
   setEventState = () => {
     APIManager.getAll("events").then(event =>
       this.setState({
         events: event
+      })
+    );
+  };
+
+  //leah's task DUMP
+  setTaskState = () => {
+    APIManager.getAll("toDo").then(tasks =>
+      this.setState({
+        tasks: tasks
       })
     );
   };
@@ -60,7 +73,6 @@ export default class ApplicationViews extends Component {
           path="/"
           render={props => {
             return <Home />;
-            
           }}
         />
         <Route
@@ -89,7 +101,12 @@ export default class ApplicationViews extends Component {
           path="/todo"
           render={state => {
             //key is todo, value is the array of tasks
-            return <ToDoList toDos={this.state.tasks} />;
+            return (
+              <ToDoMaker
+                toDos={this.state.tasks}
+                setTaskState={this.setTaskState}
+              />
+            );
           }}
         />
 
@@ -98,10 +115,14 @@ export default class ApplicationViews extends Component {
             return <Chat chat={this.state.chat} />;
           }}
         />
-        <Route exact path="/chat/:chatId/edit" render={(props) => {
-          return <EditChat chat={props.location.state.chat} {...props}/>
-        }} />
-        
+        <Route
+          exact
+          path="/chat/:chatId/edit"
+          render={props => {
+            return <EditChat chat={props.location.state.chat} {...props} />;
+          }}
+        />
+
         <Route
           path="/events"
           render={state => {
