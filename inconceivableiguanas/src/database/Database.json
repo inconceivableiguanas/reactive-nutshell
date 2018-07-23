@@ -1,13 +1,25 @@
 {
-  "event": [
+  "events": [
     {
       "name": "test",
       "id": "0",
-      "dateOf": "2018-07-04",
-      "place": "NSS"
+      "date": "2018-07-04",
+      "placeOf": "NSS"
+    },
+    {
+      "name": "Kitty Litter Clump Toss",
+      "id": 2,
+      "date": "03-09-2019",
+      "placeOf": "Crazy Cat Lady's Home"
+    },
+    {
+      "name": "Dogshit-Extravaganza!",
+      "id": 1,
+      "date": "03-08-2019",
+      "placeOf": "Shitty Dog Park"
     }
   ],
-  "task": [
+  "toDo": [
     {
       "name": "test",
       "id": "0",
@@ -23,28 +35,10 @@
       "id": "uqH1oi3"
     },
     {
-      "name": "Look",
-      "synopsis": "Check this cool summary",
-      "url": "www.google.com",
-      "id": "FlRwQN1"
-    },
-    {
-      "name": "asd",
-      "synopsis": "asdf",
-      "url": "asdf",
-      "id": "myjN8yO"
-    },
-    {
       "name": "yoyoyo",
       "synopsis": "yoyoyo",
       "url": "yoyyoyoyo.com",
       "id": "vP2aPyc"
-    },
-    {
-      "name": "test",
-      "synopsis": "workplease",
-      "url": "google.com",
-      "id": "LnrT2FD"
     },
     {
       "name": "asdf",
@@ -54,25 +48,11 @@
     },
     {
       "name": "asdf",
-      "synopsis": "asfdsascf",
-      "url": "http://www.yeahboi.com",
-      "id": "lVxNm47"
-    },
-    {
-      "name": "asdf",
       "synopsis": "asdf",
       "url": "http://www.yeahboi.com",
-      "id": "tGvWfE8"
-    },
-    {
-      "name": "PLEASE WORK",
-      "synopsis": "DOES IT WORK",
-      "url": "http://www.yeahboi.com",
-      "id": "gJt75Bn"
+      "id": "bvp38yR"
     }
   ],
-  "friend": [],
-  "chat": [],
   "user": [
     {
       "name": "test",
@@ -82,6 +62,12 @@
     }
   ],
   "friends": [],
+  "chat": [
+    {
+      "message": "Aloha",
+      "id": 1
+    }
+  ],
   "users": [
     {
       "id": "0",

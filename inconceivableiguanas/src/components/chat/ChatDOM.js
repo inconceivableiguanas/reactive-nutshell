@@ -1,46 +1,31 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
-
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default props => {
-    // state = { should be able to use props since state is passed down from chat.js
-    //    chat:[
-        
-        //    ]
-        //  }
-        const secStyle= {
-            border: '1px solid black'
-        }
-        
-            return (
-                
-                <React.Fragment>
-            <section style = {secStyle} id = {props.chat.id}>
-                <p>User Id{props.chat.userId}</p>
+  const secStyle = {
+    border: "1px solid black"
+  };
 
-                <p className="card-text">{props.chat.message}
-                {
-                    <Link className="card-link"
-                    to={{
-                        pathname: `/chat/${props.chat.id}/edit`,
-                        state: { chat: props.chat }
-                    }}>
-                        Edit
-                    </Link>
-                    // <Link className="card-link"
-                    // to={{
-                        //     pathname: `/chat/${chat.message.id}/edit`, //link to edit form
-                        //     state: { chat: chat } //data going to edit form?????
-                        // }}>
-                        //     Edit
-                        // </Link>
-                    }
-                </p>
-                
-            </section>
-            
-        </React.Fragment>
-                //on click call post method, rebuild dom in .then in desending order
-            )
-        }
-    
+  return (
+    <React.Fragment>
+      <section style={secStyle} id={props.chat.id}>
+        <p>User Id{props.chat.userId}</p>
+
+        <p className="card-text">
+          {props.chat.message}
+          {
+            <Link
+              className="card-link"
+              to={{
+                pathname: `/chat/${props.chat.id}/edit`,
+                state: { chat: props.chat }
+              }}
+            >
+              Edit
+            </Link>
+          }
+        </p>
+      </section>
+    </React.Fragment>
+  );
+};

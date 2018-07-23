@@ -5,7 +5,6 @@ export default class Articles extends Component {
 
   render() {
     let propart = this.props.article;
-
     return (
       <div>
         <a href={propart.url}>

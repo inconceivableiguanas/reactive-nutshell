@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Events from "./components/events/Events";
+import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
-import Todo from "./components/toDo/Todo";
+import ToDoList from "./components/toDo/ToDoList";
 import Home from "./Home";
 import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
 export default class ApplicationViews extends Component {
   state = {
-    event: [],
+    events: [],
     task: [],
+    tasks: [],
     article: [],
-    chat: [],
-    friends: [],
-    users: []
+    friends: []
   };
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
@@ -26,19 +25,16 @@ export default class ApplicationViews extends Component {
       })
     );
   };
-
-  // SHU'S BIG OL CHAT DUMP
-
-  // setTheState = () => {
-  //   APIManager.getAll("chat").then(chats =>
-  //     this.setState({
-  //       chat: chats
-  //     })
-  //   );
-  // };
-
   // END OF ARTICLE DUMP
   // END OF CHAT DUMP
+
+  setEventState = () => {
+    APIManager.getAll("events").then(event =>
+      this.setState({
+        events: event
+      })
+    );
+  };
 
   render() {
     return (
@@ -50,9 +46,6 @@ export default class ApplicationViews extends Component {
           path="/"
           render={props => {
             return <Home />;
-            // <Home home={props.location.state.home}>
-            //   {props.location.state.home.name}
-            // </Home>
           }}
         />
         <Route
@@ -79,12 +72,9 @@ export default class ApplicationViews extends Component {
         />
         <Route
           path="/todo"
-          render={props => {
-            return (
-              <Todo todo={props.location.state.todo}>
-                {props.location.state.todo}
-              </Todo>
-            );
+          render={state => {
+            //key is todo, value is the array of tasks
+            return <ToDoList toDos={this.state.tasks} />;
           }}
         />
 
@@ -99,16 +89,20 @@ export default class ApplicationViews extends Component {
           exact
           path="/chat/:chatId/edit"
           render={props => {
-            return <EditChat chat={props.location.state.chat} />;
+            return <EditChat chat={props.location.state.chat} {...props} />;
           }}
         />
+
         <Route
           path="/events"
-          render={props => {
+          render={state => {
             return (
-              <Events events={props.location.state.events}>
-                {props.location.state.events}
-              </Events>
+              <EventsList
+                events={this.state.events}
+                setEventState={this.setEventState}
+              >
+                {this.state.events}
+              </EventsList>
             );
           }}
         />
