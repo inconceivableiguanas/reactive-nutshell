@@ -7,6 +7,8 @@ import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
 import ToDoList from "./components/toDo/ToDoList";
 import Home from "./Home";
+import TodoForm from "./components/toDo/ToDoMaker";
+import ToDoMaker from "./components/toDo/ToDoMaker";
 
 import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
@@ -96,7 +98,12 @@ export default class ApplicationViews extends Component {
           path="/todo"
           render={state => {
             //key is todo, value is the array of tasks
-            return <ToDoList toDos={this.state.tasks} />;
+            return (
+              <ToDoMaker
+                toDos={this.state.tasks}
+                setTaskState={this.setTaskState}
+              />
+            );
           }}
         />
 

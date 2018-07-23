@@ -50,19 +50,22 @@ export default class TodoForm extends Component {
   };
 
   render() {
-    let propTask = this.props.tasks;
+    //this tasks is from the appviews
+    let propTask = this.props.toDos;
+    console.log("proptask", propTask);
+
     return (
       <React.Fragment>
         <div>
-          <button id="addTask" onClick={this.taskFormLauncher}>
-            Create Task
+          <button className="addTask" onClick={TodoForm.taskFormLauncher}>
+            Add Task
           </button>
-          {this.state.clicked}
         </div>
+        {this.state.clicked}
 
-        {propTask.map(indivTask => (
+        {propTask.map(task => (
           //the first ToDo is the import(name of the component), then we're passing in the individual task from the array to then assign it a key w/ an id and set it to a variable to be called later(on the other side itll be called props.toDo)
-          <Todo key={indivTask.id} toDo={indivTask} />
+          <Todo key={task.id} toDo={task} />
         ))}
       </React.Fragment>
     );
