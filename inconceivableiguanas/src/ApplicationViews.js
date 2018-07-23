@@ -14,18 +14,9 @@ import APIManager from "./APIManager";
 export default class ApplicationViews extends Component {
   state = {
     events: [],
-    task: [],
-    event: [],
-    tasks: [
-      {
-        name: "dogshit",
-        id: "1",
-        date: "2018-07-2018",
-        completion: "false"
-      }
-    ], 
+    tasks: [], 
     chat:[],
-    article: [{ name: "Dogshit" }],
+    article: [],
     friends: [],
     users: []
   };
