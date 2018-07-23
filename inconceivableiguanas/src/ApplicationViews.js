@@ -37,17 +37,7 @@ export default class ApplicationViews extends Component {
       })
     )
   }
-   // SHU'S BIG OL CHAT DUMP
-  //  setTheState = () => {
-  //   APIManager.getAll("chat").then(chats =>
-  //     this.setState({
-  //       chat: chats
-  //     })
-  //   );
-  // };
-
-  // END OF ARTICLE DUMP
-  // END OF CHAT DUMP
+   
 
   setEventState = () => {
     APIManager.getAll("events").then(event =>

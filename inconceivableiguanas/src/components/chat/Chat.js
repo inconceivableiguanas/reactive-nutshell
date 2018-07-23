@@ -15,13 +15,11 @@ export default class Chat extends Component {
         //don't need tp do chat:chat is they are named the same
     }
     
-    
     handleFieldChange = evt => { //used on add chat input
         this.setState({
             message:evt.target.value //took out evt.target.id and changed to message since I only have to worry about one input field
         });
     };
-    
     addMessage = e => {
         e.preventDefault();
         APIManager.postItem("chat",{
