@@ -10,7 +10,7 @@ export default class EventsList extends Component {
     this.props.setEventState();
   }
   deleteEvents = id => {
-    ApiManager.deleteItem("events", id)
+    APIManager.deleteItem("events", id)
       .then(() => {
         return APIManager.getAll("events");
       })

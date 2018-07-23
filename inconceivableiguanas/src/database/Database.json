@@ -78,13 +78,6 @@
       "friendId": "1"
     }
   ],
-  "chat": [
-    {
-      "id": "0",
-      "message": "test",
-      "userId": "0"
-    }
-  ],
   "user": [
     {
       "name": "test",
@@ -102,24 +95,8 @@
   ],
   "chat": [
     {
-      "message": "hello",
-      "userId": "9",
+      "message": "Aloha",
       "id": 1
-    },
-    {
-      "message": "howdy",
-      "userId": "9",
-      "id": 2
-    },
-    {
-      "message": "hi",
-      "userId": "9",
-      "id": 3
-    },
-    {
-      "message": "hello hello",
-      "userId": "9",
-      "id": 4
     }
   ],
   "users": [

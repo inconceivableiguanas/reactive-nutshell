@@ -3,11 +3,6 @@ import { Link } from "react-router-dom"
 
 
 export default props => {
-    // state = { should be able to use props since state is passed down from chat.js
-    //    chat:[
-        
-        //    ]
-        //  }
         const secStyle= {
             border: '1px solid black'
         }
@@ -27,20 +22,12 @@ export default props => {
                     }}>
                         Edit
                     </Link>
-                    // <Link className="card-link"
-                    // to={{
-                        //     pathname: `/chat/${chat.message.id}/edit`, //link to edit form
-                        //     state: { chat: chat } //data going to edit form?????
-                        // }}>
-                        //     Edit
-                        // </Link>
                     }
                 </p>
                 
             </section>
             
         </React.Fragment>
-                //on click call post method, rebuild dom in .then in desending order
             )
         }
     
