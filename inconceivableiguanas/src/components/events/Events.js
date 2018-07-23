@@ -2,7 +2,7 @@ import React from "react";
 import ApplicationViews from "../../ApplicationViews";
 
 import EventsForm, { deleteEvents } from "./EventsList";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Events = ({ event, children, deleteEvents, editEvents }) => {
   return (
     <div className="events-card" style={{ width: `18rem` }}>
@@ -18,7 +18,14 @@ const Events = ({ event, children, deleteEvents, editEvents }) => {
       >
         DELETE
       </button>
-      {<button onClick={this.EventsForm}>EDIT EVENTS</button>}
+      <Link
+        to={{
+          pathname: `/events/${event.id}/edit`,
+          state: { events: children.events }
+        }}
+      >
+        EDIT
+      </Link>
     </div>
   );
 };

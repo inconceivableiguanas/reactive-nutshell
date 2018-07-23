@@ -12,6 +12,8 @@ export default class EventsForm extends Component {
       };
     } else {
       this.state = { events: {} };
+      this.handleFieldChange = this.handleFieldChange.bind(this);
+      // this.handleSubmit = this.handleSubmit.bind(this);
     }
   }
 
@@ -81,23 +83,24 @@ export default class EventsForm extends Component {
           Event:{" "}
           <input
             class="events-input-name"
+            type="text"
             onChange={this.handleFieldChange}
             id="name"
-            value={this.props.events.name}
+            value={this.setState.name}
           />
           Location:{" "}
           <input
             class="events-input-location"
             onChange={this.handleFieldChange}
             id="placeOf"
-            value={this.props.events.placeOf}
+            value={this.setState.placeOf}
           />
           Date:{" "}
           <input
             class="events-input-date"
             onChange={this.handleFieldChange}
             id="date"
-            value={this.props.events.date}
+            value={this.setState.date}
           />
           <button onClick={this.eventsFunction}>SAVE</button>
         </div>

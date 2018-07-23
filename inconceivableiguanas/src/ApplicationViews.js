@@ -137,6 +137,7 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
+          exact
           path="/events"
           render={state => {
             return (
@@ -150,17 +151,15 @@ export default class ApplicationViews extends Component {
             );
           }}
         />
-        {/* <Route
-          path="/events/:eventId"
+        <Route
+          exact
+          path="/events/:eventId/edit"
           render={props => {
             return (
-              <Events event={props.location.state.Events}>
-                {props.location.state.Events.name}
-                {console.log(props.location.state)}
-              </Events>
+              <EventsForm event={props.location.state.events} {...props} />
             );
           }}
-        /> */}
+        />
 
         <Route
           path="/friends"
