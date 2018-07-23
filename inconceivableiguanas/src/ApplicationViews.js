@@ -32,7 +32,8 @@ export default class ApplicationViews extends Component {
     chat:[],
     article: [{ name: "Dogshit" }],
     friends: [],
-    users: []
+    users: [],
+    results: [],
   };
   
   friendState = () => {
@@ -40,6 +41,20 @@ export default class ApplicationViews extends Component {
     .then(friend => {
         this.setState({friends: friend});
     })
+  }
+  friendSearch = (inputVal) => {
+    Api.getAll(`users?q=${inputVal}`)
+    .then(response => {
+        this.setState({results: response})
+        // console.log("This is running");
+        
+})
+}
+  addFriend = (yourId, userId) => {
+    Api.postFriend(yourId, userId)
+    .then(response => {
+        this.friendState()
+      })
   }
   // userState = () => {
   //   Api.getAll("users")
@@ -148,7 +163,7 @@ export default class ApplicationViews extends Component {
         <Route
           path="/friends" 
           render={props => {
-            return <FriendsList friends={this.state.friends} users={this.state.users} friendState={this.friendState} userState={this.userState} />
+            return <FriendsList friends={this.state.friends} addFriend={this.addFriend} results={this.state.results} friendSearch={this.friendSearch} users={this.state.users} friendState={this.friendState} userState={this.userState} />
           }} />
       </React.Fragment>
     );

@@ -52,6 +52,20 @@ const ApiManager = Object.create(
       value: (yourId) => {
         return fetch(`http://localhost:5002/friends?_expand=user&yourId=${yourId}`).then(e => e.json())
       }
+    },
+    postFriend: {
+      value: (yourId, userId) => {
+        return fetch(`http://localhost:5002/friends`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            "yourId": yourId,
+            "userId": userId
+          })
+        });
+      }
     }
   }
 );
