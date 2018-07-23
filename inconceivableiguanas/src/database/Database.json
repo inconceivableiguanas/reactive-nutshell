@@ -75,7 +75,28 @@
       "url": "test"
     }
   ],
-  "friends": [],
+  "friends": [
+    {
+      "yourId": "1",
+      "id": "2",
+      "userId": "2"
+    },
+    {
+      "yourId": "0",
+      "id": "0",
+      "userId": "1"
+    },
+    {
+      "yourId": "2",
+      "id": "3",
+      "userId": "1"
+    },
+    {
+      "yourId": "1",
+      "userId": "3",
+      "id": "ZqvsV6k"
+    }
+  ],
   "chat": [
     {
       "message": "Aloha",
@@ -92,6 +113,21 @@
       "id": "0",
       "name": "test",
       "email": "test@test.com"
+    },
+    {
+      "id": "1",
+      "name": "Jacob",
+      "email": "Jacob@Jacob.com"
+    },
+    {
+      "id": "2",
+      "name": "JackBob",
+      "email": "JackBob@JackBob.com"
+    },
+    {
+      "id": "3",
+      "name": "Jenn",
+      "email": "Jenn@Jenn.Jenn"
     }
   ]
 }
