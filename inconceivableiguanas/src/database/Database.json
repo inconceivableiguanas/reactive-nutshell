@@ -98,12 +98,22 @@
   ],
   "friends": [
     {
-      "userId": "0",
-      "id": "0",
-      "friendId": "1"
+        "yourId":"0",
+        "id":"0",
+        "userId":"1"
+    },
+    {
+        "yourId":"1",
+        "id":"1",
+        "userId":"2"
+    },
+    {
+        "yourId":"2",
+        "id":"3",
+        "userId":"1"
     }
   ],
-  "chat": [
+"chat":[
     {
       "message": "Aloha",
       "id": 1
@@ -111,9 +121,19 @@
   ],
   "users": [
     {
-      "id": "0",
-      "name": "test",
-      "email": "test@test.com"
+    "id":"0",
+    "name":"test",
+    "email":"test@test.com"
+    },
+    {
+    "id":"1",
+    "name":"Jacob",
+    "email":"Jacob@Jacob.com"
+    },
+    {
+    "id":"2",
+    "name":"JackBob",
+    "email":"JackBob@JackBob.com"
     }
   ]
 }
