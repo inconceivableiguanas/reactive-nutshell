@@ -57,22 +57,22 @@
       "synopsis": "asfdsascf",
       "url": "http://www.yeahboi.com",
       "id": "lVxNm47"
-    }
-  ],
-  "friend": [
+    },
     {
-      "userId": "0",
-      "id": "0",
-      "friendId": "1"
-    }
-  ],
-  "chat": [
+      "name": "asdf",
+      "synopsis": "asdf",
+      "url": "http://www.yeahboi.com",
+      "id": "tGvWfE8"
+    },
     {
-      "id": "0",
-      "message": "test",
-      "userId": "0"
+      "name": "PLEASE WORK",
+      "synopsis": "DOES IT WORK",
+      "url": "http://www.yeahboi.com",
+      "id": "gJt75Bn"
     }
   ],
+  "friend": [],
+  "chat": [],
   "user": [
     {
       "name": "test",
@@ -82,28 +82,6 @@
     }
   ],
   "friends": [],
-  "chat": [
-    {
-      "message": "hello",
-      "userId": "9",
-      "id": 1
-    },
-    {
-      "message": "howdy",
-      "userId": "9",
-      "id": 2
-    },
-    {
-      "message": "hi",
-      "userId": "9",
-      "id": 3
-    },
-    {
-      "message": "hello hello",
-      "userId": "9",
-      "id": 4
-    }
-  ],
   "users": [
     {
       "id": "0",

@@ -11,6 +11,7 @@ export default class ArticleList extends Component {
   }
 
   addNewArticle = event => {
+    event.preventDefault();
     const title = event.target.ArticleTitle.value;
     const summary = event.target.ArticleSummary.value;
     const url = event.target.ArticleURL.value;

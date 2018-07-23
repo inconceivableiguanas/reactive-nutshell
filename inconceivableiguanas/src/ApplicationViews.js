@@ -7,13 +7,8 @@ import Chat from "./components/chat/Chat";
 import Friends from "./components/friends/Friends";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
-<<<<<<< HEAD
+import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
-
-=======
-import EditChat from "./components/chat/EditChat"
-import APIManager from "./APIManager";
->>>>>>> master
 export default class ApplicationViews extends Component {
   state = {
     event: [],
@@ -28,14 +23,19 @@ export default class ApplicationViews extends Component {
     APIManager.getAll("article?_sort=id&order=desc").then(articles =>
       this.setState({
         article: articles
-   // SHU'S BIG OL CHAT DUMP
-   setTheState = () => {
-    APIManager.getAll("chat").then(chats =>
-      this.setState({
-        chat: chats
       })
     );
   };
+
+  // SHU'S BIG OL CHAT DUMP
+
+  // setTheState = () => {
+  //   APIManager.getAll("chat").then(chats =>
+  //     this.setState({
+  //       chat: chats
+  //     })
+  //   );
+  // };
 
   // END OF ARTICLE DUMP
   // END OF CHAT DUMP
@@ -89,17 +89,19 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          exact path="/chat"
+          exact
+          path="/chat"
           render={props => {
-            return (
-              <Chat chat={this.state.chat}/>
-                
-            );
+            return <Chat chat={this.state.chat} />;
           }}
         />
-        <Route exact path="/chat/:chatId/edit" render={(props) => {
-          return <EditChat chat={props.location.state.chat} />
-        }} />
+        <Route
+          exact
+          path="/chat/:chatId/edit"
+          render={props => {
+            return <EditChat chat={props.location.state.chat} />;
+          }}
+        />
         <Route
           path="/events"
           render={props => {
