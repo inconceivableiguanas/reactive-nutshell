@@ -2,19 +2,35 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Api from "./APIManager";
 import Events from "./components/events/Events";
+import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
+import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
 import FriendsList from "./components/friends/FriendsList";
 import Todo from "./components/toDo/Todo";
 import Home from "./Home";
-import Friends from "./components/friends/Friends"
+import Friends from "./components/friends/Friends";
+import ToDoList from "./components/toDo/ToDoList";
+import Home from "./Home";
 import EditChat from "./components/chat/EditChat"
 import APIManager from "./APIManager";
+
 export default class ApplicationViews extends Component {
   
   state = {
-    event: [],
+    events: [],
     task: [],
+    chat: [],
+    event: [],
+
+    tasks: [
+      {
+        name: "dogshit",
+        id: "1",
+        date: "2018-07-2018",
+        completion: "false"
+      }
+    ], 
     chat:[],
     article: [{ name: "Dogshit" }],
     friends: [],
@@ -34,6 +50,11 @@ export default class ApplicationViews extends Component {
   //   })
   // }
     
+  // AUSTINS BIG OL ARTICLE DUMP
+  setTheState = () => {
+    APIManager.getAll("article?_sort=id&order=desc").then(articles =>
+      this.setState({
+        article: articles
    // SHU'S BIG OL CHAT DUMP
    setTheState = () => {
     APIManager.getAll("chat").then(chats =>
@@ -43,7 +64,16 @@ export default class ApplicationViews extends Component {
     );
   };
 
+  // END OF ARTICLE DUMP
   // END OF CHAT DUMP
+
+  setEventState = () => {
+    APIManager.getAll("events").then(event =>
+      this.setState({
+        events: event
+      })
+    );
+  };
 
   render() {
     
@@ -56,48 +86,65 @@ export default class ApplicationViews extends Component {
           path="/"
           render={props => {
             return <Home />;
-            // <Home home={props.location.state.home}>
-            //   {props.location.state.home.name}
-            // </Home>
+            <Home home={props.location.state.home}>
+              {props.location.state.home.name}
+            </Home>;
           }}
         />
-
+        <Route
+          path="/articles/:articleId"
+          render={props => {
+            return (
+              <Articles article={props.location.state.Articles}>
+                {props.location.state.Articles.name}
+                {console.log(props.location.state)}
+              </Articles>
+            );
+          }}
+        />
         <Route
           path="/articles"
           render={state => {
-            return <ArticleList articles={this.state.article} />;
+            return (
+              <ArticleList
+                articles={this.state.article}
+                setTheState={this.setTheState}
+              />
+            );
           }}
         />
         <Route
           path="/todo"
-          render={props => {
-            return (
-              <Todo todo={props.location.state.todo}>
-                {props.location.state.todo}
-              </Todo>
-            );
+          render={state => {
+            //key is todo, value is the array of tasks
+            return <ToDoList toDos={this.state.tasks} />;
           }}
         />
 
         <Route
-          exact path="/chat"
+          exact
+          path="/chat"
           render={props => {
-            return (
-              <Chat chat={this.state.chat}/>
-                
-            );
+            return <Chat chat={this.state.chat} />;
           }}
         />
-        <Route exact path="/chat/:chatId/edit" render={(props) => {
-          return <EditChat chat={props.location.state.chat} />
-        }} />
+        <Route
+          exact
+          path="/chat/:chatId/edit"
+          render={props => {
+            return <EditChat chat={props.location.state.chat} />;
+          }}
+        />
         <Route
           path="/events"
-          render={props => {
+          render={state => {
             return (
-              <Events events={props.location.state.events}>
-                {props.location.state.events}
-              </Events>
+              <EventsList
+                events={this.state.events}
+                setEventState={this.setEventState}
+              >
+                {this.state.events}
+              </EventsList>
             );
           }}
         />
