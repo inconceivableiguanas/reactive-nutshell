@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Articles from "./Articles";
-import APIManager from "../../APIManager";
+// import APIManager from "../../APIManager";
 // import Moment from "react-moment";
 
 export default class ArticleList extends Component {

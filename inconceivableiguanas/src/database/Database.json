@@ -17,6 +17,18 @@
       "id": 1,
       "date": "03-08-2019",
       "placeOf": "Shitty Dog Park"
+    },
+    {
+      "name": "Shave My Chest",
+      "placeOf": "Front pourch",
+      "date": "7/30/18",
+      "id": 3
+    },
+    {
+      "name": "cut toe nails",
+      "placeOf": "kitchen sink",
+      "date": "8/1/18",
+      "id": 4
     }
   ],
   "toDo": [
@@ -88,22 +100,22 @@
   ],
   "friends": [
     {
-        "yourId":"0",
-        "id":"0",
-        "userId":"1"
+      "yourId": "0",
+      "id": "0",
+      "userId": "1"
     },
     {
-        "yourId":"1",
-        "id":"1",
-        "userId":"2"
+      "yourId": "1",
+      "id": "1",
+      "userId": "2"
     },
     {
-        "yourId":"2",
-        "id":"3",
-        "userId":"1"
+      "yourId": "2",
+      "id": "3",
+      "userId": "1"
     }
   ],
-"chat":[
+  "chat": [
     {
       "message": "Aloha",
       "id": 1
@@ -111,19 +123,19 @@
   ],
   "users": [
     {
-    "id":"0",
-    "name":"test",
-    "email":"test@test.com"
+      "id": "0",
+      "name": "test",
+      "email": "test@test.com"
     },
     {
-    "id":"1",
-    "name":"Jacob",
-    "email":"Jacob@Jacob.com"
+      "id": "1",
+      "name": "Jacob",
+      "email": "Jacob@Jacob.com"
     },
     {
-    "id":"2",
-    "name":"JackBob",
-    "email":"JackBob@JackBob.com"
+      "id": "2",
+      "name": "JackBob",
+      "email": "JackBob@JackBob.com"
     }
   ]
 }

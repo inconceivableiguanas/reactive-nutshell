@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EventsForm from "./EventsForm";
 import { Link } from "react-router-dom";
 
 const Events = ({ event, children, deleteEvents, editEvents }) => {
@@ -10,19 +11,7 @@ const Events = ({ event, children, deleteEvents, editEvents }) => {
         <p className="events-card-text">{children.placeOf}</p>
       </div>
       <button onClick={() => deleteEvents(this.props.events.id)}>DELETE</button>
-      {
-        <button>
-          <Link
-            className="events-card-link"
-            to={{
-              pathname: "/eventsForm",
-              state: { events: event }
-            }}
-          >
-            Edit Events
-          </Link>
-        </button>
-      }
+      {<button onClick={this.EventsForm}>EDIT EVENTS</button>}
     </div>
   );
 };

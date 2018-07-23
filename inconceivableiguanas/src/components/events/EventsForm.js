@@ -53,7 +53,7 @@ export default class EventsForm extends Component {
           return APIManager.getAll("events");
         })
         .then(eventsList => {
-          this.setState({
+          this.props.setState({
             events: eventsList
           });
         });

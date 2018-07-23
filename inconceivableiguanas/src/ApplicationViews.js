@@ -8,15 +8,15 @@ import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
 import FriendsList from "./components/friends/FriendsList";
 import Todo from "./components/toDo/Todo";
-import Home from "./Home";
+// import Home from "./Home";
 import Friends from "./components/friends/Friends";
 import ToDoList from "./components/toDo/ToDoList";
-// import Home from "./Home";
-import EditChat from "./components/chat/EditChat"
+import Home from "./Home";
+import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
+import EventsForm from "./components/events/EventsForm";
 
 export default class ApplicationViews extends Component {
-  
   state = {
     events: [],
     task: [],
@@ -28,35 +28,34 @@ export default class ApplicationViews extends Component {
         date: "2018-07-2018",
         completion: "false"
       }
-    ], 
-    chat:[],
+    ],
+    chat: [],
     article: [{ name: "Dogshit" }],
     friends: [],
     users: []
   };
-  
+
   friendState = () => {
-    Api.friendsExpand("1")
-    .then(friend => {
-        this.setState({friends: friend});
-    })
-  }
+    Api.friendsExpand("1").then(friend => {
+      this.setState({ friends: friend });
+    });
+  };
   // userState = () => {
   //   Api.getAll("users")
   //   .then(user => {
   //     this.setState({users: user})
   //   })
   // }
-    
+
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
     APIManager.getAll("article?_sort=id&order=desc").then(articles =>
       this.setState({
         article: articles
       })
-    )
-  }
-   // SHU'S BIG OL CHAT DUMP
+    );
+  };
+  // SHU'S BIG OL CHAT DUMP
   //  setTheState = () => {
   //   APIManager.getAll("chat").then(chats =>
   //     this.setState({
@@ -77,7 +76,6 @@ export default class ApplicationViews extends Component {
   };
 
   render() {
-    
     return (
       <React.Fragment>
         <h1>App Views</h1>
@@ -87,7 +85,6 @@ export default class ApplicationViews extends Component {
           path="/"
           render={props => {
             return <Home />;
-            
           }}
         />
         <Route
@@ -127,10 +124,14 @@ export default class ApplicationViews extends Component {
             return <Chat chat={this.state.chat} />;
           }}
         />
-        <Route exact path="/chat/:chatId/edit" render={(props) => {
-          return <EditChat chat={props.location.state.chat} {...props}/>
-        }} />
-        
+        <Route
+          exact
+          path="/chat/:chatId/edit"
+          render={props => {
+            return <EditChat chat={props.location.state.chat} {...props} />;
+          }}
+        />
+
         <Route
           path="/events"
           render={state => {
@@ -144,12 +145,33 @@ export default class ApplicationViews extends Component {
             );
           }}
         />
+        <Route
+          path="/events/:eventsForm"
+          render={state => {
+            return (
+              <EventsForm
+                events={this.state.events}
+                setEventState={this.setEventState}
+              >
+                {this.state.events}
+              </EventsForm>
+            );
+          }}
+        />
 
         <Route
-          path="/friends" 
+          path="/friends"
           render={props => {
-            return <FriendsList friends={this.state.friends} users={this.state.users} friendState={this.friendState} userState={this.userState} />
-          }} />
+            return (
+              <FriendsList
+                friends={this.state.friends}
+                users={this.state.users}
+                friendState={this.friendState}
+                userState={this.userState}
+              />
+            );
+          }}
+        />
       </React.Fragment>
     );
   }
