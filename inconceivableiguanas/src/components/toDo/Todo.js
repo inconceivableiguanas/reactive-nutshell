@@ -1,9 +1,9 @@
 //leah gwin 2018
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-// import TodoCheckFn from "./TodoCheckFn";
 import ApiManager from "../../APIManager";
 import ToDoEdit from "./ToDoEdit";
+
 
 export default class Todo extends Component {
   state = {
