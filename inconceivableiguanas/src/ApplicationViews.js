@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Api from "./APIManager";
-import Events from "./components/events/Events";
+import EventsForm from "./components/events/EventsForm";
 import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Articles from "./components/articles/Articles";
@@ -22,36 +22,32 @@ export default class ApplicationViews extends Component {
     article: [],
     friends: [],
     users: [],
-    results: [],
+    results: []
   };
 
   friendState = () => {
-    Api.friendsExpand("1")
-    .then(friend => {
-        this.setState({friends: friend});
-    })
-  }
-  friendSearch = (inputVal) => {
-    Api.getAll(`users?q=${inputVal}`)
-    .then(response => {
-        this.setState({results: response})
-        // console.log("This is running");
-        
-})
-}
+    Api.friendsExpand("1").then(friend => {
+      this.setState({ friends: friend });
+    });
+  };
+  friendSearch = inputVal => {
+    Api.getAll(`users?q=${inputVal}`).then(response => {
+      this.setState({ results: response });
+      // console.log("This is running");
+    });
+  };
   addFriend = (yourId, userId) => {
-    Api.postFriend(yourId, userId)
-    .then(response => {
-        this.friendState()
-      })
-  }
+    Api.postFriend(yourId, userId).then(response => {
+      this.friendState();
+    });
+  };
   // userState = () => {
   //   Api.getAll("users")
   //   .then(user => {
   //     this.setState({users: user})
   //   })
   // }
-    
+
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
     APIManager.getAll("article?_sort=timestamp&order=desc").then(articles =>
@@ -62,11 +58,16 @@ export default class ApplicationViews extends Component {
   };
 
   setEventState = () => {
-    APIManager.getAll("events").then(event =>
+    return APIManager.getAll("events").then(event =>
       this.setState({
         events: event
       })
     );
+  };
+  deleteEvents = id => {
+    APIManager.deleteItem("events", id).then(() => {
+      this.setEventState();
+    });
   };
 
   //leah's task DUMP
@@ -139,15 +140,33 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
+          exact
+          path="/chat/:chatId/edit"
+          render={props => {
+            return <EditChat chat={props.location.state.chat} {...props} />;
+          }}
+        />
+
+        <Route
           path="/events"
           render={state => {
             return (
               <EventsList
                 events={this.state.events}
                 setEventState={this.setEventState}
+                deleteEvents={this.deleteEvents}
               >
                 {this.state.events}
               </EventsList>
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/events/:eventId/edit"
+          render={props => {
+            return (
+              <EventsForm events={props.location.state.events} {...props} />
             );
           }}
         />
@@ -155,8 +174,19 @@ export default class ApplicationViews extends Component {
         <Route
           path="/friends"
           render={props => {
-            return <FriendsList friends={this.state.friends} addFriend={this.addFriend} results={this.state.results} friendSearch={this.friendSearch} users={this.state.users} friendState={this.friendState} userState={this.userState} />
-          }} />
+            return (
+              <FriendsList
+                friends={this.state.friends}
+                addFriend={this.addFriend}
+                results={this.state.results}
+                friendSearch={this.friendSearch}
+                users={this.state.users}
+                friendState={this.friendState}
+                userState={this.userState}
+              />
+            );
+          }}
+        />
       </React.Fragment>
     );
   }
