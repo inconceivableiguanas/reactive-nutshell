@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import ApiManager from "../../APIManager.js"
-
+import ApiManager from "../../APIManager.js";
 
 export default class EditChat extends Component {
   // Set initial state
@@ -8,7 +7,6 @@ export default class EditChat extends Component {
     message: this.props.chat.message,
     userId: this.props.chat.userId
   };
-  
 
   // Update state whenever an input field is edited
   handleFieldChange = evt => {
@@ -19,16 +17,16 @@ export default class EditChat extends Component {
 
   handleUpdate = e => {
     e.preventDefault();
-  //creates dataObject need for fetch patch method
+    //creates dataObject need for fetch patch method
     const updatedChat = {
       message: this.state.message,
       userId: this.state.userId
-    }
+    };
     ApiManager.updateItem("chat", this.props.chat.id, updatedChat)
-    //returns to chat page. {...props} is needed to be passed in from ApplicationViews ofr .history to work
-    .then(() => {
-      this.props.history.push("/chat");
-    })
+      //returns to chat page. {...props} is needed to be passed in from ApplicationViews ofr .history to work
+      .then(() => {
+        this.props.history.push("/chat");
+      });
   };
 
   render() {

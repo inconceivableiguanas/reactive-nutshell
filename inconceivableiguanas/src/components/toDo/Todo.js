@@ -3,10 +3,6 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import ApiManager from "../../APIManager";
 import ToDoEdit from "./ToDoEdit";
-<<<<<<< HEAD
-=======
-
->>>>>>> 36cec305aaeeebd76e9b411a94c47c961e1ab7a9
 
 export default class Todo extends Component {
   state = {
