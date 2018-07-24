@@ -17,6 +17,7 @@ export default props => {
             <p>User Id {props.chat.userId}</p>
 
             <h3 className="card-text">{props.chat.message}</h3>
+
             {
               <Link
                 className="card-link"
