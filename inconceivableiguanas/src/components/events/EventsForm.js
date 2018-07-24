@@ -30,13 +30,13 @@ export default class EventsForm extends Component {
 
   editEventForm = () => {
     return (
-      <form onSubmit={this.handleUpdate}>
+      <form onSubmit={this.handleUpdate} className="editForm">
         <label>Event Title</label>
         <input
           id="name"
           name="eventsTitle"
           type="text"
-          value={this.state.value}
+          value={this.state.name}
           onChange={this.handleChange}
         />
         <label>Event Location</label>
@@ -44,7 +44,7 @@ export default class EventsForm extends Component {
           id="placeOf"
           name="eventsLocation"
           type="text"
-          value={this.state.value}
+          value={this.state.placeOf}
           onChange={this.handleChange}
         />
         <label>Event Date</label>
@@ -52,7 +52,7 @@ export default class EventsForm extends Component {
           id="date"
           name="eventsDate"
           type="text"
-          value={this.state.value}
+          value={this.state.date}
           onChange={this.handleChange}
         />
         <button type="submit" value="Submit">

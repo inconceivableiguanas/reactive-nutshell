@@ -32,7 +32,7 @@ export default class EventsList extends Component {
     if (this.state.clicked === "") {
       this.setState({
         clicked: (
-          <form onSubmit={this.addNewEvent}>
+          <form onSubmit={this.addNewEvent} class="eventContainer">
             <label>Event Title</label>
             <input id="eventsTitle" name="eventsTitle" type="text" />
             <label>Event Location</label>
