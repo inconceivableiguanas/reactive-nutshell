@@ -12,3 +12,20 @@ body {
 a {
   padding-right: 10%;
 }
+
+.eventContainer,
+.events-card,
+.editForm {
+  border: 0.5pt solid black;
+  padding-left: 3%;
+}
+a {
+  padding-right: 10%;
+}
+.events-card:first-of-type {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: rgb(25, 218, 224);
+  color: white;
+  text-shadow: 2px 2px 1px grey;
+}
