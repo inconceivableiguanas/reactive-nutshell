@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Articles from "./Articles";
-// import APIManager from "../../APIManager";
-// import Moment from "react-moment";
+import APIManager from "../../APIManager";
+import Moment from "moment";
 
 export default class ArticleList extends Component {
   state = { clicked: "" };
@@ -11,10 +11,11 @@ export default class ArticleList extends Component {
   }
 
   addNewArticle = event => {
+    event.preventDefault();
     const title = event.target.ArticleTitle.value;
     const summary = event.target.ArticleSummary.value;
     const url = event.target.ArticleURL.value;
-    // const time = Moment().format("YYYY-MM-DD hh:mm:ss a");
+    const time = Moment().format("YYYY-MM-DD hh:mm:ss a");
 
     fetch("http://localhost:5002/article", {
       method: "POST",
@@ -24,8 +25,8 @@ export default class ArticleList extends Component {
       body: JSON.stringify({
         name: title,
         synopsis: summary,
-        url: url
-        // timestamp: time
+        url: url,
+        timestamp: time
       })
     })
       // When DELETE is finished, retrieve the new list of animals
@@ -35,7 +36,8 @@ export default class ArticleList extends Component {
       })
       // Once the new array of animals is retrieved, set the state
       .then(a => a.json())
-      .then(this.props.setTheState);
+      .then(this.props.setTheState)
+      .then(this.setState({ clicked: "" }));
   };
 
   deleteArticle = articleId => {

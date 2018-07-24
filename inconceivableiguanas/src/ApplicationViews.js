@@ -1,42 +1,44 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Api from "./APIManager";
-// import Events from "./components/events/Events";
+import EventsForm from "./components/events/EventsForm";
 import EventsList from "./components/events/EventsList";
 import ArticleList from "./components/articles/ArticleList";
 import Articles from "./components/articles/Articles";
 import Chat from "./components/chat/Chat";
 import FriendsList from "./components/friends/FriendsList";
 import Todo from "./components/toDo/Todo";
-// import Home from "./Home";
-import Friends from "./components/friends/Friends";
-import ToDoList from "./components/toDo/ToDoList";
 import Home from "./Home";
+import Friends from "./components/friends/Friends";
+import TodoForm from "./components/toDo/ToDoMaker";
+import ToDoMaker from "./components/toDo/ToDoMaker";
 import EditChat from "./components/chat/EditChat";
 import APIManager from "./APIManager";
-import EventsForm from "./components/events/EventsForm";
-
 export default class ApplicationViews extends Component {
   state = {
     events: [],
-    task: [],
-    tasks: [
-      {
-        name: "dogshit",
-        id: "1",
-        date: "2018-07-2018",
-        completion: "false"
-      }
-    ],
+    tasks: [],
     chat: [],
-    article: [{ name: "Dogshit" }],
+    article: [],
     friends: [],
-    users: []
+    users: [],
+    results: []
   };
 
   friendState = () => {
     Api.friendsExpand("1").then(friend => {
       this.setState({ friends: friend });
+    });
+  };
+  friendSearch = inputVal => {
+    Api.getAll(`users?q=${inputVal}`).then(response => {
+      this.setState({ results: response });
+      // console.log("This is running");
+    });
+  };
+  addFriend = (yourId, userId) => {
+    Api.postFriend(yourId, userId).then(response => {
+      this.friendState();
     });
   };
   // userState = () => {
@@ -48,23 +50,12 @@ export default class ApplicationViews extends Component {
 
   // AUSTINS BIG OL ARTICLE DUMP
   setTheState = () => {
-    APIManager.getAll("article?_sort=id&order=desc").then(articles =>
+    APIManager.getAll("article?_sort=timestamp&order=desc").then(articles =>
       this.setState({
         article: articles
       })
     );
   };
-  // SHU'S BIG OL CHAT DUMP
-  //  setTheState = () => {
-  //   APIManager.getAll("chat").then(chats =>
-  //     this.setState({
-  //       chat: chats
-  //     })
-  //   );
-  // };
-
-  // END OF ARTICLE DUMP
-  // END OF CHAT DUMP
 
   setEventState = () => {
     return APIManager.getAll("events").then(event =>
@@ -79,11 +70,18 @@ export default class ApplicationViews extends Component {
     });
   };
 
+  //leah's task DUMP
+  setTaskState = () => {
+    APIManager.getAll("toDo").then(tasks =>
+      this.setState({
+        tasks: tasks
+      })
+    );
+  };
+
   render() {
     return (
       <React.Fragment>
-        <h1>App Views</h1>
-
         <Route
           exact
           path="/"
@@ -117,7 +115,12 @@ export default class ApplicationViews extends Component {
           path="/todo"
           render={state => {
             //key is todo, value is the array of tasks
-            return <ToDoList toDos={this.state.tasks} />;
+            return (
+              <ToDoMaker
+                toDos={this.state.tasks}
+                setTaskState={this.setTaskState}
+              />
+            );
           }}
         />
 
@@ -128,6 +131,14 @@ export default class ApplicationViews extends Component {
             return <Chat chat={this.state.chat} />;
           }}
         />
+        <Route
+          exact
+          path="/chat/:chatId/edit"
+          render={props => {
+            return <EditChat chat={props.location.state.chat} {...props} />;
+          }}
+        />
+
         <Route
           exact
           path="/chat/:chatId/edit"
@@ -156,7 +167,7 @@ export default class ApplicationViews extends Component {
           path="/events/:eventId/edit"
           render={props => {
             return (
-              <EventsForm event={props.location.state.events} {...props} />
+              <EventsForm events={props.location.state.events} {...props} />
             );
           }}
         />
@@ -167,6 +178,9 @@ export default class ApplicationViews extends Component {
             return (
               <FriendsList
                 friends={this.state.friends}
+                addFriend={this.addFriend}
+                results={this.state.results}
+                friendSearch={this.friendSearch}
                 users={this.state.users}
                 friendState={this.friendState}
                 userState={this.userState}

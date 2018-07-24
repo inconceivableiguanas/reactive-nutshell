@@ -7,15 +7,30 @@ export default class EventsForm extends Component {
     super(props);
     console.log(props);
     if (props.location.state.hasOwnProperty("events")) {
-      this.state = {
+      this.setState = {
         events: props.location.state.events
       };
     } else {
       this.state = { events: {} };
-      this.handleFieldChange = this.handleFieldChange.bind(this);
-      // this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
   }
+  changeEventName = event => {
+    const eventName = this.state.eventName;
+    eventName.name = event.target.value;
+    this.setState({ eventName: eventName });
+  };
+  changeEventLocation = event => {
+    const eventLocation = this.state.eventLocation;
+    eventLocation.placeOf = event.target.value;
+    this.setState({ eventLocation: eventLocation });
+  };
+  changeEventDate = event => {
+    const eventDate = this.state.eventDate;
+    eventDate.date = event.target.value;
+    this.setState({ eventDate: eventDate });
+  };
 
   eventsFunction = () => {
     if (this.props.location.events.hasOwnProperty("events")) {
@@ -26,7 +41,7 @@ export default class EventsForm extends Component {
       let eventsId = this.props.events.id;
       let body = {
         name: eventsName,
-        location: eventsLocation,
+        placeOf: eventsLocation,
         date: eventsDate
       };
       console.log(body);
@@ -46,7 +61,7 @@ export default class EventsForm extends Component {
       let eventsDate = document.getElementById("date").value();
       let body = {
         name: eventsName,
-        location: eventsLocation,
+        placeOf: eventsLocation,
         date: eventsDate
       };
       console.log(eventsDate);
@@ -62,48 +77,45 @@ export default class EventsForm extends Component {
     }
   };
 
-  handleFieldChange = eventsValue => {
-    const stateToChange = {};
-    stateToChange[eventsValue.target.id] = eventsValue.target.value;
-    this.setState(stateToChange);
-    console.log(stateToChange);
-  };
+  // handleFieldChange = eventsValue => {
+  //   const stateToChange = {};
+  //   stateToChange[eventsValue.target.id] = eventsValue.target.value;
+  //   this.setState(stateToChange);
+  //   console.log(stateToChange);
+  // };
 
-  // handleChange = date => {
-  //   this.setState({
-  //     eventsDate: date
-  //   });
-  //   console.log(this.state.events.date);
+  // handleChange = (events, event) => {
+  //   const captureEventValue = this.state.captureValue;
+  //   captureValue[events] = event.target.value;
+  //   this.setState({ captureEventValue: captureEventValue });
   // };
 
   render() {
     return (
       <React.Fragment>
-        <div id="eventsInputFields">
-          Event:{" "}
-          <input
-            class="events-input-name"
-            type="text"
-            onChange={this.handleFieldChange}
-            id="name"
-            value={this.setState.name}
-          />
-          Location:{" "}
-          <input
-            class="events-input-location"
-            onChange={this.handleFieldChange}
-            id="placeOf"
-            value={this.setState.placeOf}
-          />
-          Date:{" "}
-          <input
-            class="events-input-date"
-            onChange={this.handleFieldChange}
-            id="date"
-            value={this.setState.date}
-          />
-          <button onClick={this.eventsFunction}>SAVE</button>
-        </div>
+        <form>
+          <div id="eventsInputFields">
+            Event:{" "}
+            <input
+              type="text"
+              onChange={this.handleChange.bind(this, { changeEventName })}
+              value={this.state.eventName.name}
+            />
+            Location:{" "}
+            <input
+              type="text"
+              onChange={this.handleChange.bind(this, { changeEventLocation })}
+              value={this.state.eventLocaiton.placeOf}
+            />
+            Date:{" "}
+            <input
+              type="text"
+              onChange={this.handleChange.bind(this, { changeEventDate })}
+              value={this.state.eventDate.date}
+            />
+            <button onClick={this.eventsFunction}>SAVE</button>
+          </div>
+        </form>
       </React.Fragment>
     );
   }

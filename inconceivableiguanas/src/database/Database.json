@@ -13,9 +13,9 @@
       "placeOf": "Shitty Dog Park"
     },
     {
-      "name": "poop shoot",
-      "placeOf": "master bathroom ",
-      "date": "7/30/18",
+      "name": "shave my back",
+      "placeOf": "front patio ",
+      "date": "8/1/18",
       "id": 3
     }
   ],
@@ -25,57 +25,46 @@
       "id": "0",
       "date": "2018-07-04",
       "completion": "False"
+    },
+    {
+      "name": "hi",
+      "date": "pls work",
+      "id": "SWjminO"
+    },
+    {
+      "name": "go",
+      "date": "away",
+      "id": "Lub3kmn"
     }
   ],
   "article": [
     {
-      "name": "oh shit",
-      "synopsis": "it works",
-      "url": "http://www.dogshit.com",
-      "id": "uqH1oi3"
-    },
-    {
       "name": "Look",
+      "synopsis": "thing ",
+      "url": "http://www.yeahboi.com",
+      "timestamp": "2018-07-30 11:04:40 am",
+      "id": 1
+    },
+    {
+      "name": "PLEASE WORK",
+      "synopsis": "asdfg",
+      "url": "http://www.yeahboi.com",
+      "timestamp": "2018-07-23 11:04:52 am",
+      "id": 2
+    },
+    {
+      "name": "oh shit",
       "synopsis": "Check this cool summary",
-      "url": "www.google.com",
-      "id": "FlRwQN1"
-    },
-    {
-      "name": "asd",
-      "synopsis": "asdf",
-      "url": "asdf",
-      "id": "myjN8yO"
-    },
-    {
-      "name": "yoyoyo",
-      "synopsis": "yoyoyo",
-      "url": "yoyyoyoyo.com",
-      "id": "vP2aPyc"
-    },
-    {
-      "name": "test",
-      "synopsis": "workplease",
-      "url": "google.com",
-      "id": "LnrT2FD"
+      "url": "http://www.yeahboi.com",
+      "timestamp": "2018-07-22 11:06:43 am",
+      "id": 3
     },
     {
       "name": "asdf",
       "synopsis": "asdf",
       "url": "http://www.dogshit.com",
-      "id": "8zQPTCG"
-    },
-    {
-      "name": "asdf",
-      "synopsis": "asfdsascf",
-      "url": "http://www.yeahboi.com",
-      "id": "lVxNm47"
-    }
-  ],
-  "friend": [
-    {
-      "userId": "0",
-      "id": "0",
-      "friendId": "1"
+      "timestamp": "2018-07-23 11:32:02 am",
+      "id": 4
     }
   ],
   "user": [
@@ -88,25 +77,35 @@
   ],
   "friends": [
     {
+      "yourId": "1",
+      "id": "2",
+      "userId": "2"
+    },
+    {
       "yourId": "0",
       "id": "0",
       "userId": "1"
     },
     {
-      "yourId": "1",
-      "id": "1",
-      "userId": "2"
-    },
-    {
       "yourId": "2",
       "id": "3",
       "userId": "1"
+    },
+    {
+      "yourId": "1",
+      "userId": "3",
+      "id": "ZqvsV6k"
     }
   ],
   "chat": [
     {
       "message": "Aloha",
       "id": 1
+    },
+    {
+      "userId": 1,
+      "message": "howdy",
+      "id": 2
     }
   ],
   "users": [
@@ -124,6 +123,11 @@
       "id": "2",
       "name": "JackBob",
       "email": "JackBob@JackBob.com"
+    },
+    {
+      "id": "3",
+      "name": "Jenn",
+      "email": "Jenn@Jenn.Jenn"
     }
   ]
 }
