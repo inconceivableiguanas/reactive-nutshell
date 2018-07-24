@@ -63,11 +63,4 @@ export default class EventsForm extends Component {
     );
   };
 
-  render() {
-    return (
-      <React.Fragment>
-        <div>{this.editEventForm()}</div>
-      </React.Fragment>
-    );
-  }
 }
