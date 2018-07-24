@@ -1,7 +1,6 @@
 //leah gwin 2018
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import check from "./components/toDo/TodoCheckfn";
 
 export default class Todo extends Component {
   render() {
