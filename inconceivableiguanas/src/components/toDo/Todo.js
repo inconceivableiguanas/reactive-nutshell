@@ -1,9 +1,24 @@
 //leah gwin 2018
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-// import check from "./components/toDo/TodoCheckfn";
+// import TodoCheckFn from "./TodoCheckFn";
+import ApiManager from "../../APIManager";
 
 export default class Todo extends Component {
+  state = {
+    completion: this.props.toDo.completion
+  };
+  //changes state of completion on click of checkbox
+  handleChange = evt => {
+    const stateToChange = { completion: this.props.toDo.completion };
+    stateToChange["completion"] = true;
+    this.setState(stateToChange);
+    //collectionName, itemId, theObject
+    ApiManager.patchItem("todo", this.props.toDo.id, stateToChange).then(() => {
+      return ApiManager.getAll("toDo?completion=false");
+    });
+  };
+
   render() {
     //this is toDo from the proptask map on ToDoMaker
     let propTask = this.props.toDo;
@@ -14,10 +29,12 @@ export default class Todo extends Component {
           <h4>{propTask.name}</h4>
           <p>{propTask.date}</p>
           <input
-            onClick={task => propTask.checkTask(propTask.task)}
+            onChange={this.handleChange}
             type="checkbox"
             name="isChecked"
+            id="completion"
           />
+          <button type="edit">Edit</button>
         </div>
       </React.Fragment>
     );

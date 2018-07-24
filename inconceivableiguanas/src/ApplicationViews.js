@@ -72,7 +72,7 @@ export default class ApplicationViews extends Component {
 
   //leah's task DUMP
   setTaskState = () => {
-    APIManager.getAll("toDo").then(tasks =>
+    APIManager.getAll("toDo?completion=false").then(tasks =>
       this.setState({
         tasks: tasks
       })

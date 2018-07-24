@@ -24,7 +24,7 @@ export default class TodoForm extends Component {
       body: JSON.stringify({
         name: taskName,
         date: dueDate,
-        completion: "False"
+        completion: false
       })
     })
       .then(() => {
