@@ -1,8 +1,6 @@
 import React from "react";
-import ApplicationViews from "../../ApplicationViews";
-
-import EventsForm, { deleteEvents } from "./EventsList";
 import { Link } from "react-router-dom";
+
 const Events = ({ event, children, deleteEvents, editEvents }) => {
   return (
     <div className="events-card" style={{ width: `18rem` }}>

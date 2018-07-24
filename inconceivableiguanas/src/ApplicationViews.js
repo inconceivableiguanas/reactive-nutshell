@@ -148,7 +148,6 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          exact
           path="/events"
           render={state => {
             return (
