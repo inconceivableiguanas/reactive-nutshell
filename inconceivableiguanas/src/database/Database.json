@@ -2,21 +2,21 @@
   "events": [
     {
       "name": "Kitty Litter Clump Toss",
-      "id": "2",
+      "id": "1",
       "date": "03-09-2019",
       "placeOf": "Crazy Cat Lady's Home"
     },
     {
-      "name": "Dogshit-Extravaganza!",
-      "id": "1",
-      "date": "03-08-2019",
-      "placeOf": "Shitty Dog Park"
+      "name": "wax my chest ",
+      "placeOf": "kitchen sink",
+      "date": "8/1/18",
+      "id": "2"
     },
     {
       "name": "shave my back",
       "placeOf": "front patio ",
       "date": "8/1/18",
-      "id": "72Ap0Mh"
+      "id": "kH5Uw0l"
     }
   ],
   "toDo": [
@@ -210,21 +210,6 @@
       "id": "5TeKWm2"
     }
   ],
-  "friend": [
-    {
-      "userId": "0",
-      "id": "0",
-      "friendId": "1"
-    }
-  ],
-  "user": [
-    {
-      "name": "test",
-      "id": "0",
-      "synopsis": "test",
-      "url": "test"
-    }
-  ],
   "friends": [
     {
       "yourId": "1",
@@ -249,19 +234,13 @@
   ],
   "chat": [
     {
-      "userId": 1,
-      "message": "hey hey hey",
+      "message": "Aloha",
       "id": 1
     },
     {
-      "message": "Aloha",
-      "userId": 50,
-      "id": 2
-    },
-    {
       "userId": 1,
-      "message": "hey hey hey",
-      "id": 3
+      "message": "howdy",
+      "id": 2
     }
   ],
   "users": [
@@ -284,6 +263,56 @@
       "id": "3",
       "name": "Jenn",
       "email": "Jenn@Jenn.Jenn"
+    },
+    {
+      "name": "Thang",
+      "email": "austin.gorman@gmail.com",
+      "id": "O2zk17m"
+    },
+    {
+      "name": "HIIOIIIIEIEEIEIE",
+      "email": "dingdong@jingjong.com",
+      "id": "NUE2yxS"
+    },
+    {
+      "name": "Jisies",
+      "email": "austin.gorman@gmail.com",
+      "id": "s04mU2l"
+    },
+    {
+      "name": "Thang",
+      "email": "dingdong@jingjong.com",
+      "id": "4P~bLis"
+    },
+    {
+      "name": "testing",
+      "email": "test@gmail.com",
+      "id": "yzkKMva"
+    },
+    {
+      "name": "Yeahboi",
+      "email": "testtesttest@gmail.com",
+      "id": "GatO6Pj"
+    },
+    {
+      "name": "Shu",
+      "email": "shu@gmail.com",
+      "id": "quugzMa"
+    },
+    {
+      "name": "pancake",
+      "email": "pancakes@gmail.com",
+      "id": "7Lerxbd"
+    },
+    {
+      "name": "teaserlwelje",
+      "email": "help@gmail.com",
+      "id": "Cp6qj~D"
+    },
+    {
+      "name": "alskdjfslfsw",
+      "email": "alksjfjlsda@gmail.com",
+      "id": "kjqctLx"
     }
   ]
 }

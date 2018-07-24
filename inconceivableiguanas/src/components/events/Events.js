@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Events = ({ event, children, deleteEvents, editEvents }) => {
+const Events = ({ event, children, deleteEvents }) => {
   return (
     <div className="events-card" style={{ width: `18rem` }}>
       <div className="events-card-body">
@@ -19,7 +19,7 @@ const Events = ({ event, children, deleteEvents, editEvents }) => {
       <Link
         to={{
           pathname: `/events/${event.id}/edit`,
-          state: { events: children.events }
+          state: { event: event }
         }}
       >
         EDIT
