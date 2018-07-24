@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Events = ({ event, children, deleteEvents, editEvents }) => {
+const Events = ({ event, children, deleteEvents }) => {
   return (
     <div className="events-card" style={{ width: `18rem` }}>
       <div className="events-card-body">

@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import Events from "./Events";
-import APIManager from "../../APIManager";
-import EventsForm from "./EventsForm";
-// import EventsForm from "./EventsForm";
-// import "react-datepicker/dist/react-datepicker.css";
 
 export default class EventsList extends Component {
   state = { clicked: "" };
@@ -15,7 +10,6 @@ export default class EventsList extends Component {
     const name = event.target.eventsTitle.value;
     const placeOf = event.target.eventsLocation.value;
     const date = event.target.eventsDate.value;
-    // const time = Moment().format("YYYY-MM-DD hh:mm:ss a");
 
     fetch("http://localhost:5002/events", {
       method: "POST",
@@ -65,7 +59,6 @@ export default class EventsList extends Component {
               key={event.id}
               event={event}
               deleteEvents={this.props.deleteEvents}
-              // editEvents={<EventsForm />}
             >
               {event}
             </Events>
