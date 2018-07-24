@@ -5,7 +5,8 @@ import ApiManager from "../../APIManager.js"
 export default class EditChat extends Component {
   // Set initial state
   state = {
-    message: this.props.chat.message
+    message: this.props.chat.message,
+    userId: this.props.chat.userId
   };
   
 
@@ -18,8 +19,11 @@ export default class EditChat extends Component {
 
   handleUpdate = e => {
     e.preventDefault();
-//creates dataObject need for fetch patch method
-    const updatedChat = {message: this.state.message}
+  //creates dataObject need for fetch patch method
+    const updatedChat = {
+      message: this.state.message,
+      userId: this.state.userId
+    }
     ApiManager.updateItem("chat", this.props.chat.id, updatedChat)
     //returns to chat page. {...props} is needed to be passed in from ApplicationViews ofr .history to work
     .then(() => {
