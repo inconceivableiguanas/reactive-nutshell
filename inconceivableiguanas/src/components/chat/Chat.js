@@ -42,36 +42,8 @@ export default class Chat extends Component {
       );
   };
 
-  addMessage = e => {
-    e.preventDefault();
-    APIManager.postItem("chat", {
-      message: this.state.message,
-      userId: this.state.userId
-    })
-      .then(e => e.json())
-      .then(messageToPush =>
-        this.setState(
-          ({ chat, message }) => ({
-            chat: [...chat, messageToPush],
-            message: ""
-          })
-          //({ chat, message }) is previous state destructured => new state destructured state with new property, empty message string sets input to empty string
-        )
-      );
-  };
+  
 
-  editMessage = chatId => {
-    APIManager.updateItem("chat", chatId)
-      .then(() => {
-        return APIManager.getAll("chat?_sort=id&_order=asc");
-      })
-      .then(chatList =>
-        this.setState(
-          ({ chat }) => ({ chat: [...chat, chatList] })
-          //took out brackets because it is a one line function and another pair of {} is omitted for syntax since we are using previous state as ({chat}). chat = chat + new edited chat
-        )
-      );
-  };
 
   render() {
     return (

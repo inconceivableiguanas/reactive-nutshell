@@ -1,18 +1,28 @@
 import React, { Component } from "react";
 import APIManager from "../../APIManager";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default class EventsForm extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-    if (props.location.state.hasOwnProperty("events")) {
-      this.state = {
-        events: props.location.state.events
-      };
-    } else {
-      this.state = { events: {} };
-    }
+  // constructor(props) {
+  //   super(props);
+  //   this.setState = { value: "" };
+
+  //   this.handleChange = this.handleChange.bind(this);
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+  // }
+  state = {
+    name: this.props.event.name,
+    placeOf: this.props.event.placeOf,
+    date: this.props.event.date
+  };
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    alert(this.state.value);
+    event.preventDefault();
   }
 
   eventsFunction = () => {
@@ -24,7 +34,7 @@ export default class EventsForm extends Component {
       let eventsId = this.props.events.id;
       let body = {
         name: eventsName,
-        location: eventsLocation,
+        placeOf: eventsLocation,
         date: eventsDate
       };
       console.log(body);
@@ -44,7 +54,7 @@ export default class EventsForm extends Component {
       let eventsDate = document.getElementById("date").value();
       let body = {
         name: eventsName,
-        location: eventsLocation,
+        placeOf: eventsLocation,
         date: eventsDate
       };
       console.log(eventsDate);
@@ -53,54 +63,52 @@ export default class EventsForm extends Component {
           return APIManager.getAll("events");
         })
         .then(eventsList => {
-          this.setState({
+          this.props.setState({
             events: eventsList
           });
         });
     }
   };
 
-  handleFieldChange = eventsValue => {
-    const stateToChange = {};
-    stateToChange[eventsValue.target.id] = eventsValue.target.value;
-    this.setState(stateToChange);
-    console.log(stateToChange);
+  editEventForm = () => {
+    return (
+      // if (this.state.clicked === "") {
+      //   this.setState({
+      //     clicked: (
+      <form onSubmit={this.handleSubmit}>
+        <label>Event Title</label>
+        <input
+          id="eventsTitle"
+          name="eventsTitle"
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <label>Event Location</label>
+        <input
+          id="eventsLocation"
+          name="eventsLocation"
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <label>Event Date</label>
+        <input
+          id="eventsDate"
+          name="eventsDate"
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <button onClick={this.eventsFunction} type="submit" value="Submit" />
+      </form>
+    );
   };
-
-  // handleChange = date => {
-  //   this.setState({
-  //     eventsDate: date
-  //   });
-  //   console.log(this.state.events.date);
-  // };
 
   render() {
     return (
       <React.Fragment>
-        <div id="eventsInputFields">
-          Event:{" "}
-          <input
-            class="events-input-name"
-            onChange={this.handleFieldChange}
-            id="name"
-            value={this.props.events.name}
-          />
-          Location:{" "}
-          <input
-            class="events-input-location"
-            onChange={this.handleFieldChange}
-            id="placeOf"
-            value={this.props.events.placeOf}
-          />
-          Date:{" "}
-          <input
-            class="events-input-date"
-            onChange={this.handleFieldChange}
-            id="date"
-            value={this.props.events.date}
-          />
-          <button onClick={this.eventsFunction}>SAVE</button>
-        </div>
+        <div>{this.editEventForm()}</div>
       </React.Fragment>
     );
   }
