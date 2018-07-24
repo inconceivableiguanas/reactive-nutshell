@@ -11,7 +11,7 @@ export default class Chat extends Component {
     userId: "9"
   };
   componentDidMount() {
-    //passing a sort into collection
+    
     APIManager.getAll("chat?_sort=id&_order=asc").then(chat =>
       this.setState({ chat })
     );
