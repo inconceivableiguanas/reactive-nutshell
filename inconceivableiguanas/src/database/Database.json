@@ -151,13 +151,19 @@
   ],
   "chat": [
     {
-      "message": "Aloha",
+      "userId": 1,
+      "message": "hey hey hey",
       "id": 1
     },
     {
-      "message": "wassuuupp cool kids",
-      "userId": "9",
+      "message": "Aloha",
+      "userId": 50,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "message": "hey hey hey",
+      "id": 3
     }
   ],
   "users": [
