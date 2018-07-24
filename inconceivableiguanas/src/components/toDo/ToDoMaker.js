@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Todo from "./Todo";
+import ApiManager from "../../APIManager";
 
 export default class TodoForm extends Component {
   state = { clicked: "" };
@@ -22,7 +23,8 @@ export default class TodoForm extends Component {
       },
       body: JSON.stringify({
         name: taskName,
-        date: dueDate
+        date: dueDate,
+        completion: "False"
       })
     })
       .then(() => {
@@ -33,6 +35,14 @@ export default class TodoForm extends Component {
       .then(this.setState({ clicked: "" }));
   };
 
+  //this function listens for the enter key to be pushed for a submit
+  handleKeyPress = event => {
+    if (event.key === "Enter") {
+      console.log("enter is pressed");
+    }
+  };
+
+  //this is the form for making a task
   taskFormLauncher = () => {
     if (this.state.clicked === "") {
       this.setState({
@@ -40,8 +50,13 @@ export default class TodoForm extends Component {
           <form onSubmit={this.addNewTask}>
             <label>Task Name</label>
             <input id="taskName" name="ArticleTitle" type="text" />
-            <label>Article Summary</label>
-            <input id="dueDate" name="dueDate" type="text" />
+            <label>Due Date</label>
+            <input
+              id="dueDate"
+              name="dueDate"
+              type="date"
+              onKeyPress={this.handleKeyPress}
+            />
             <button type="submit">Submit</button>
           </form>
         )
@@ -52,7 +67,7 @@ export default class TodoForm extends Component {
   };
 
   render() {
-    //this todos is from the appviews
+    //this todos prop is from the appviews
     let propTask = this.props.toDos;
     console.log("proptask", propTask);
 

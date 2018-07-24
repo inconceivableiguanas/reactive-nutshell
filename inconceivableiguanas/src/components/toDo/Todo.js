@@ -9,9 +9,14 @@ export default class Todo extends Component {
     console.log("PROPS tasks", this.props.toDo);
     return (
       <React.Fragment>
-        <div>
+        <div id="individualTask">
           <h4>{propTask.name}</h4>
           <p>{propTask.date}</p>
+          <input
+            onClick={task => propTask.checkTask(propTask.task)}
+            type="checkbox"
+            name="isChecked"
+          />
         </div>
       </React.Fragment>
     );

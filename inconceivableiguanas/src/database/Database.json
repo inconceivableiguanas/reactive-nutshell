@@ -32,47 +32,84 @@
       "id": "SWjminO"
     },
     {
-      "name": "go",
-      "date": "away",
-      "id": "Lub3kmn"
+      "name": "Eat pizza",
+      "date": "07/24/2018",
+      "id": "lKC71jO"
+    },
+    {
+      "name": "testing",
+      "date": "the completion",
+      "completion": "False",
+      "id": "txgH4Ro"
+    },
+    {
+      "name": "test",
+      "date": "pls work",
+      "completion": "False",
+      "id": "7pZPHGI"
+    },
+    {
+      "name": "hi",
+      "date": "20-101-29",
+      "completion": "False",
+      "id": "7irvj75"
+    },
+    {
+      "name": "vacuum",
+      "date": "2018-12-07",
+      "completion": "False",
+      "id": "C~iMmlR"
     }
   ],
   "article": [
     {
-      "name": "Look",
-      "synopsis": "thing ",
-      "url": "http://www.yeahboi.com",
-      "timestamp": "2018-07-30 11:04:40 am",
-      "id": 1
-    },
-    {
-      "name": "PLEASE WORK",
-      "synopsis": "asdfg",
-      "url": "http://www.yeahboi.com",
-      "timestamp": "2018-07-23 11:04:52 am",
-      "id": 2
-    },
-    {
       "name": "oh shit",
+      "synopsis": "it works",
+      "url": "http://www.dogshit.com",
+      "id": "uqH1oi3"
+    },
+    {
+      "name": "Look",
       "synopsis": "Check this cool summary",
-      "url": "http://www.yeahboi.com",
-      "timestamp": "2018-07-22 11:06:43 am",
-      "id": 3
+      "url": "www.google.com",
+      "id": "FlRwQN1"
+    },
+    {
+      "name": "asd",
+      "synopsis": "asdf",
+      "url": "asdf",
+      "id": "myjN8yO"
+    },
+    {
+      "name": "yoyoyo",
+      "synopsis": "yoyoyo",
+      "url": "yoyyoyoyo.com",
+      "id": "vP2aPyc"
+    },
+    {
+      "name": "test",
+      "synopsis": "workplease",
+      "url": "google.com",
+      "id": "LnrT2FD"
     },
     {
       "name": "asdf",
       "synopsis": "asdf",
       "url": "http://www.dogshit.com",
-      "timestamp": "2018-07-23 11:32:02 am",
-      "id": 4
-    }
-  ],
-  "user": [
+      "id": "8zQPTCG"
+    },
     {
-      "name": "test",
-      "id": "0",
-      "synopsis": "test",
-      "url": "test"
+      "name": "asdf",
+      "synopsis": "asfdsascf",
+      "url": "http://www.yeahboi.com",
+      "id": "lVxNm47"
+    },
+    {
+      "name": "husky howls",
+      "synopsis": "this husky makes me laugh when it howls",
+      "url": "https://www.instagram.com/p/Bgj3-KnntTK/",
+      "timestamp": "2018-07-23 03:11:23 pm",
+      "id": "5TeKWm2"
     }
   ],
   "friends": [
@@ -99,14 +136,13 @@
   ],
   "chat": [
     {
-      "userId": 1,
-      "message": "hey hey hey",
+      "message": "Aloha",
       "id": 1
     },
     {
       "userId": 1,
-      "message": "hey hey hey",
-      "id": 3
+      "message": "howdy",
+      "id": 2
     }
   ],
   "users": [
@@ -129,6 +165,56 @@
       "id": "3",
       "name": "Jenn",
       "email": "Jenn@Jenn.Jenn"
+    },
+    {
+      "name": "Thang",
+      "email": "austin.gorman@gmail.com",
+      "id": "O2zk17m"
+    },
+    {
+      "name": "HIIOIIIIEIEEIEIE",
+      "email": "dingdong@jingjong.com",
+      "id": "NUE2yxS"
+    },
+    {
+      "name": "Jisies",
+      "email": "austin.gorman@gmail.com",
+      "id": "s04mU2l"
+    },
+    {
+      "name": "Thang",
+      "email": "dingdong@jingjong.com",
+      "id": "4P~bLis"
+    },
+    {
+      "name": "testing",
+      "email": "test@gmail.com",
+      "id": "yzkKMva"
+    },
+    {
+      "name": "Yeahboi",
+      "email": "testtesttest@gmail.com",
+      "id": "GatO6Pj"
+    },
+    {
+      "name": "Shu",
+      "email": "shu@gmail.com",
+      "id": "quugzMa"
+    },
+    {
+      "name": "pancake",
+      "email": "pancakes@gmail.com",
+      "id": "7Lerxbd"
+    },
+    {
+      "name": "teaserlwelje",
+      "email": "help@gmail.com",
+      "id": "Cp6qj~D"
+    },
+    {
+      "name": "alskdjfslfsw",
+      "email": "alksjfjlsda@gmail.com",
+      "id": "kjqctLx"
     }
   ]
 }
