@@ -148,6 +148,7 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
+          exact
           path="/events"
           render={state => {
             return (
@@ -165,9 +166,7 @@ export default class ApplicationViews extends Component {
           exact
           path="/events/:eventId/edit"
           render={props => {
-            return (
-              <EventsForm events={props.location.state.events} {...props} />
-            );
+            return <EventsForm event={props.location.state.event} {...props} />;
           }}
         />
 

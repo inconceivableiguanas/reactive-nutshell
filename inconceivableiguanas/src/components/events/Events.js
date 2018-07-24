@@ -19,7 +19,7 @@ const Events = ({ event, children, deleteEvents, editEvents }) => {
       <Link
         to={{
           pathname: `/events/${event.id}/edit`,
-          state: { events: children.events }
+          state: { event: event }
         }}
       >
         EDIT

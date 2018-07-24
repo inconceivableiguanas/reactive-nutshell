@@ -11,42 +11,39 @@ export default class EventsForm extends Component {
   //   this.handleSubmit = this.handleSubmit.bind(this);
   // }
   state = {
-    name: this.props.event.name,
-    placeOf: this.props.event.placeOf,
-    date: this.props.event.date
+    name: this.props.location.state.event.name,
+    placeOf: this.props.location.state.event.placeOf,
+    date: this.props.location.state.event.date
   };
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
+  handleChange = event => {
+    const stateToChange = {};
+    stateToChange[event.target.id] = event.target.value;
+    this.setState(stateToChange);
+  };
 
-  handleSubmit(event) {
-    alert(this.state.value);
-    event.preventDefault();
-  }
+  // handleSubmit = event => {
+  //   alert(this.state.name);
+  //   event.preventDefault();
 
   eventsFunction = () => {
-    if (this.props.location.events.hasOwnProperty("events")) {
+    if (this.props.location.state.hasOwnProperty("event")) {
       console.log("edit");
-      let eventsName = this.props.events.name;
-      let eventsLocation = this.props.events.placeOf;
-      let eventsDate = this.props.events.date;
-      let eventsId = this.props.events.id;
+      let eventsName = this.props.state.name;
+      let eventsLocation = this.props.state.placeOf;
+      let eventsDate = this.props.state.date;
+      let eventsId = this.props.location.state.event.id;
       let body = {
         name: eventsName,
         placeOf: eventsLocation,
         date: eventsDate
       };
       console.log(body);
-      APIManager.patchItem("events", eventsId, body)
-        .then(() => {
-          return APIManager.getAll("events");
-        })
-        .then(eventsList => {
-          this.setState({
-            events: eventsList
-          });
-        });
+      APIManager.patchItem("events", eventsId, body).then(() => {
+        //redirect to events page;
+        // this.handleChange();
+        this.props.history.push("events");
+      });
     } else {
       console.log("add");
       let eventsName = document.getElementById("name").value();
@@ -58,15 +55,9 @@ export default class EventsForm extends Component {
         date: eventsDate
       };
       console.log(eventsDate);
-      APIManager.addData("events", body)
-        .then(() => {
-          return APIManager.getAll("events");
-        })
-        .then(eventsList => {
-          this.props.setState({
-            events: eventsList
-          });
-        });
+      APIManager.addData("events", body).then(() => {
+        this.props.history.push("/events");
+      });
     }
   };
 
@@ -75,10 +66,10 @@ export default class EventsForm extends Component {
       // if (this.state.clicked === "") {
       //   this.setState({
       //     clicked: (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.eventsFunction}>
         <label>Event Title</label>
         <input
-          id="eventsTitle"
+          id="name"
           name="eventsTitle"
           type="text"
           value={this.state.value}
@@ -86,7 +77,7 @@ export default class EventsForm extends Component {
         />
         <label>Event Location</label>
         <input
-          id="eventsLocation"
+          id="placeOf"
           name="eventsLocation"
           type="text"
           value={this.state.value}
@@ -94,13 +85,16 @@ export default class EventsForm extends Component {
         />
         <label>Event Date</label>
         <input
-          id="eventsDate"
+          id="date"
           name="eventsDate"
           type="text"
           value={this.state.value}
           onChange={this.handleChange}
         />
-        <button onClick={this.eventsFunction} type="submit" value="Submit" />
+        <button type="submit" value="Submit">
+          {" "}
+          SAVE{" "}
+        </button>
       </form>
     );
   };
