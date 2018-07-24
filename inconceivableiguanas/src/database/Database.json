@@ -21,44 +21,142 @@
   ],
   "toDo": [
     {
-      "name": "test",
-      "id": "0",
-      "date": "2018-07-04",
-      "completion": "False"
-    },
-    {
-      "name": "hi",
-      "date": "pls work",
-      "id": "SWjminO"
+      "name": "vacuum",
+      "date": "2018-12-07",
+      "completion": true,
+      "id": "C~iMmlR"
     },
     {
       "name": "Eat pizza",
-      "date": "07/24/2018",
-      "id": "lKC71jO"
+      "date": "2018-07-27",
+      "completion": true,
+      "id": "TtrHAeO"
     },
     {
-      "name": "testing",
-      "date": "the completion",
-      "completion": "False",
-      "id": "txgH4Ro"
+      "name": "enter key",
+      "date": "2018-07-26",
+      "completion": true,
+      "id": "at3zGcA"
     },
     {
-      "name": "test",
-      "date": "pls work",
-      "completion": "False",
-      "id": "7pZPHGI"
+      "name": "Eat pizza",
+      "date": "2018-07-28",
+      "completion": true,
+      "id": "GNhlnY2"
+    },
+    {
+      "name": "ugh",
+      "date": "2000-02-09",
+      "completion": true,
+      "id": "tPAVKgo"
+    },
+    {
+      "name": "pet puppies",
+      "date": "2018-07-27",
+      "completion": true,
+      "id": "_q0jWWT"
+    },
+    {
+      "name": "gallop in fields",
+      "date": "2018-07-30",
+      "completion": true,
+      "id": "KpFcmFh"
+    },
+    {
+      "name": "Eat pizza",
+      "date": "2018-07-27",
+      "completion": false,
+      "id": "Avv2BZO"
+    },
+    {
+      "name": "enter key",
+      "date": "2018-07-26",
+      "completion": true,
+      "id": "G1fyWHh"
+    },
+    {
+      "name": "make todo",
+      "date": "2018-07-27",
+      "completion": false,
+      "id": "RvPyUdP"
+    },
+    {
+      "name": "lets go",
+      "date": "2018-07-27",
+      "completion": false,
+      "id": "rCteTTq"
+    },
+    {
+      "name": "ugh",
+      "date": "2018-07-25",
+      "completion": false,
+      "id": "ssTBIT~"
+    },
+    {
+      "name": "enter key",
+      "date": "2018-07-25",
+      "completion": true,
+      "id": "ynZJWwO"
+    },
+    {
+      "name": "hate",
+      "date": "2018-07-20",
+      "completion": true,
+      "id": "bXOCI3X"
+    },
+    {
+      "name": "now pls",
+      "date": "2018-07-26",
+      "completion": false,
+      "id": "bgxHijz"
+    },
+    {
+      "name": "ugh",
+      "date": "2018-08-04",
+      "completion": false,
+      "id": "zvDUA33"
+    },
+    {
+      "name": "go",
+      "date": "2018-07-11",
+      "completion": true,
+      "id": "RZWoSMK"
+    },
+    {
+      "name": "enter key",
+      "date": "2018-07-26",
+      "completion": true,
+      "id": "GvSAudH"
     },
     {
       "name": "hi",
-      "date": "20-101-29",
-      "completion": "False",
-      "id": "7irvj75"
+      "date": "2018-07-26",
+      "completion": true,
+      "id": "Bze4j2L"
     },
     {
-      "name": "vacuum",
-      "date": "2018-12-07",
-      "completion": "False",
-      "id": "C~iMmlR"
+      "name": "hi",
+      "date": "2018-07-26",
+      "completion": true,
+      "id": "_62Fiy4"
+    },
+    {
+      "name": "hi",
+      "date": "",
+      "completion": true,
+      "id": "VhAAgdS"
+    },
+    {
+      "name": "hi",
+      "date": "2018-07-26",
+      "completion": true,
+      "id": "Snboi1e"
+    },
+    {
+      "name": "hi",
+      "date": "2018-07-20",
+      "completion": true,
+      "id": "P_~7d1D"
     }
   ],
   "article": [
