@@ -1,12 +1,15 @@
 import React from "react";
 
 export default props => {
-        console.log("props", props);
+        // console.log("props", props);
         
         return (
-            <div>
+            <div id={props.friends.id}>
                 <label>{props.friends.user.name}</label>
-                <button>X</button>
+                <button onClick={() => {
+                        props.friendDelete(props.friends.id)
+                        // console.log("This is working", props.friends.id);
+                    }}>X</button>
             </div>
         )
 
