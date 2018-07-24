@@ -3,10 +3,12 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 // import TodoCheckFn from "./TodoCheckFn";
 import ApiManager from "../../APIManager";
+import ToDoEdit from "./ToDoEdit";
 
 export default class Todo extends Component {
   state = {
-    completion: this.props.toDo.completion
+    completion: this.props.toDo.completion,
+    propTask: this.props.toDo
   };
   //changes state of completion on click of checkbox
   handleChange = evt => {
@@ -15,7 +17,7 @@ export default class Todo extends Component {
     this.setState(stateToChange);
     //collectionName, itemId, theObject
     ApiManager.patchItem("todo", this.props.toDo.id, stateToChange).then(() => {
-      return ApiManager.getAll("toDo?completion=false");
+      this.props.setTaskState();
     });
   };
 
@@ -26,7 +28,7 @@ export default class Todo extends Component {
     return (
       <React.Fragment>
         <div id="individualTask">
-          <h4>{propTask.name}</h4>
+          <h4 id="clickableEditName">{propTask.name}</h4>
           <p>{propTask.date}</p>
           <input
             onChange={this.handleChange}

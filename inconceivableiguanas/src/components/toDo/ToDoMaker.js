@@ -3,9 +3,14 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Todo from "./Todo";
 import ApiManager from "../../APIManager";
+import ToDoEdit from "./ToDoEdit";
 
 export default class TodoForm extends Component {
-  state = { clicked: "" };
+  state = {
+    clicked: ""
+  };
+
+  setToDoMakerState() {}
 
   componentDidMount() {
     this.props.setTaskState();
@@ -49,7 +54,7 @@ export default class TodoForm extends Component {
         clicked: (
           <form onSubmit={this.addNewTask}>
             <label>Task Name</label>
-            <input id="taskName" name="ArticleTitle" type="text" />
+            <input id="taskName" name="taskTitle" type="text" />
             <label>Due Date</label>
             <input
               id="dueDate"
@@ -67,9 +72,9 @@ export default class TodoForm extends Component {
   };
 
   render() {
-    //this todos prop is from the appviews
+    console.log("proptask", this.state.propTask);
+    console.log("STATE", this.state);
     let propTask = this.props.toDos;
-    console.log("proptask", propTask);
 
     return (
       <React.Fragment>
@@ -82,7 +87,12 @@ export default class TodoForm extends Component {
 
         {propTask.map(task => (
           //the first ToDo is the import(name of the component), then we're passing in the individual task from the array to then assign it a key w/ an id and set it to a variable to be called later(on the other side itll be called props.toDo)
-          <Todo key={task.id} toDo={task} />
+          <Todo
+            key={task.id}
+            toDo={task}
+            setTaskState={this.props.setTaskState}
+            // editFunction={this.props.}
+          />
         ))}
       </React.Fragment>
     );
