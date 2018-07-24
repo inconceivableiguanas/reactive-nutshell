@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Friends from "./Friends";
-import Api from "../../APIManager";
 import FriendSearch from "./FriendSearch";
 export default class FriendsList extends Component {
   componentDidMount() {

@@ -65,7 +65,7 @@
     {
       "name": "Eat pizza",
       "date": "2018-07-27",
-      "completion": false,
+      "completion": true,
       "id": "Avv2BZO"
     },
     {
@@ -77,7 +77,7 @@
     {
       "name": "make todo",
       "date": "2018-07-27",
-      "completion": false,
+      "completion": true,
       "id": "RvPyUdP"
     },
     {
