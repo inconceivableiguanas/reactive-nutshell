@@ -53,7 +53,7 @@ export default class TodoForm extends Component {
             <input
               id="dueDate"
               name="dueDate"
-              type="text"
+              type="date"
               onKeyPress={this.handleKeyPress}
             />
             <button type="submit">Submit</button>

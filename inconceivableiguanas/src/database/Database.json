@@ -41,36 +41,82 @@
       "date": "the completion",
       "completion": "False",
       "id": "txgH4Ro"
+    },
+    {
+      "name": "test",
+      "date": "pls work",
+      "completion": "False",
+      "id": "7pZPHGI"
+    },
+    {
+      "name": "hi",
+      "date": "20-101-29",
+      "completion": "False",
+      "id": "7irvj75"
+    },
+    {
+      "name": "vacuum",
+      "date": "2018-12-07",
+      "completion": "False",
+      "id": "C~iMmlR"
     }
   ],
   "article": [
     {
-      "name": "Look",
-      "synopsis": "thing ",
-      "url": "http://www.yeahboi.com",
-      "timestamp": "2018-07-30 11:04:40 am",
-      "id": 1
-    },
-    {
-      "name": "PLEASE WORK",
-      "synopsis": "asdfg",
-      "url": "http://www.yeahboi.com",
-      "timestamp": "2018-07-23 11:04:52 am",
-      "id": 2
-    },
-    {
       "name": "oh shit",
+      "synopsis": "it works",
+      "url": "http://www.dogshit.com",
+      "id": "uqH1oi3"
+    },
+    {
+      "name": "Look",
       "synopsis": "Check this cool summary",
-      "url": "http://www.yeahboi.com",
-      "timestamp": "2018-07-22 11:06:43 am",
-      "id": 3
+      "url": "www.google.com",
+      "id": "FlRwQN1"
+    },
+    {
+      "name": "asd",
+      "synopsis": "asdf",
+      "url": "asdf",
+      "id": "myjN8yO"
+    },
+    {
+      "name": "yoyoyo",
+      "synopsis": "yoyoyo",
+      "url": "yoyyoyoyo.com",
+      "id": "vP2aPyc"
+    },
+    {
+      "name": "test",
+      "synopsis": "workplease",
+      "url": "google.com",
+      "id": "LnrT2FD"
     },
     {
       "name": "asdf",
       "synopsis": "asdf",
       "url": "http://www.dogshit.com",
-      "timestamp": "2018-07-23 11:32:02 am",
-      "id": 4
+      "id": "8zQPTCG"
+    },
+    {
+      "name": "asdf",
+      "synopsis": "asfdsascf",
+      "url": "http://www.yeahboi.com",
+      "id": "lVxNm47"
+    },
+    {
+      "name": "husky howls",
+      "synopsis": "this husky makes me laugh when it howls",
+      "url": "https://www.instagram.com/p/Bgj3-KnntTK/",
+      "timestamp": "2018-07-23 03:11:23 pm",
+      "id": "5TeKWm2"
+    }
+  ],
+  "friend": [
+    {
+      "userId": "0",
+      "id": "0",
+      "friendId": "1"
     }
   ],
   "user": [
@@ -81,15 +127,21 @@
       "url": "test"
     }
   ],
-  "friends": [],
+  "friends": [
+    {
+      "userId": "0",
+      "id": "0",
+      "friendId": "1"
+    }
+  ],
   "chat": [
     {
       "message": "Aloha",
       "id": 1
     },
     {
-      "userId": 1,
-      "message": "howdy",
+      "message": "wassuuupp cool kids",
+      "userId": "9",
       "id": 2
     }
   ],

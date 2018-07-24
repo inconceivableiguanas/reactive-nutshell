@@ -3,15 +3,12 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-<<<<<<< HEAD
 
 /* leah's task css */
 #individualTask {
   border: 0.5pt solid black;
   padding-left: 3%;
 }
-=======
-a{
+a {
   padding-right: 10%;
 }
->>>>>>> master
